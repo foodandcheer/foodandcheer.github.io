@@ -1,2 +1,4 @@
-# merrelldyer.github.io
-Eat Food. Not Too Much. Mostly Plants.
+# foodandcheer.github.io
+
+> “If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.”
+― J.R.R. Tolkien
