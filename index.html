@@ -141,8 +141,6 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
-<li>$:/_slider-macro</li>
-
 <li>$:/.giffmex/.Stylesheet4Stroll</li>
 
 <li>$:/.giffmex/sidebar/tabs/strollcontrols</li>
@@ -158,6 +156,10 @@ Error message and password prompt
 <li>$:/.giffmex/ViewTemplate/refstranscludeclean</li>
 
 <li>$:/.giffmex/ViewTemplate/refstranscludecollapse</li>
+
+<li>$:/.jondyer/styles</li>
+
+<li>$:/.jondyer/ui/ViewTemplate/back-top</li>
 
 <li>$:/build</li>
 
@@ -499,8 +501,6 @@ Error message and password prompt
 
 <li>apple_butter_2.jpg</li>
 
-<li>apple_butter_3.jpg</li>
-
 <li>asian peanut sauce</li>
 
 <li>basic buttermilk syrup</li>
@@ -651,6 +651,8 @@ Error message and password prompt
 
 <li>orange chocolate-chip cookies</li>
 
+<li>orange_chocolate_cookies.png</li>
+
 <li>pasta</li>
 
 <li>pasta al limone</li>
@@ -737,6 +739,8 @@ Error message and password prompt
 
 <li>Soups</li>
 
+<li>Sources</li>
+
 <li>Special Occasion</li>
 
 <li>Spring</li>
@@ -755,11 +759,13 @@ Error message and password prompt
 
 <li>valerie's curried chicken salad</li>
 
-<li>Valerie's Pad Thai</li>
+<li>valerie's pad thai</li>
 
 <li>Vegetarian</li>
 
 <li>warm beans with herbed tomatoes and goat cheese</li>
+
+<li>warm_beans_goat_cheese.png</li>
 
 <li>Welcome</li>
 
@@ -781,80 +787,6 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20201004055059578" creator="MerrellDyer" modified="20201004060423252" modifier="MerrellDyer" tags="$:/tags/Macro" title="$:/_slider-macro">
-<pre>\define slider(label,tiddler)
-&lt;$set name=&quot;revealState&quot; value=&lt;&lt;qualify &quot;$:/state-reveal-$tiddler$&quot;&gt;&gt;&gt;
-&lt;h2&gt;
-  &lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;revealState&gt;&gt; text=&quot;yes&quot;&gt;
-    &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot; set=&lt;&lt;revealState&gt;&gt; setTo=&quot;yes&quot;&gt;
-      {{$:/core/images/right-arrow}}
-    &lt;/$button&gt;
-  &lt;/$reveal&gt;
-  &lt;$reveal type=&quot;match&quot; state=&lt;&lt;revealState&gt;&gt; text=&quot;yes&quot;&gt;
-    &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot; set=&lt;&lt;revealState&gt;&gt; setTo=&quot;no&quot;&gt;
-      {{$:/core/images/down-arrow}}
-    &lt;/$button&gt;
-  &lt;/$reveal&gt;
-
-&lt;$link to=&quot;$tiddler$&quot;&gt;
-  &lt;$view tiddler=&quot;$tiddler$&quot; field=&quot;title&quot;&gt;
-    &lt;$text text=&quot;$label$&quot;/&gt;
-  &lt;/$view&gt;
-&lt;/$link&gt;
-  
-&lt;/h2&gt;
-
-&lt;$reveal type=&quot;match&quot; state=&lt;&lt;revealState&gt;&gt; text=&quot;yes&quot;&gt;
-&lt;$transclude tiddler=&quot;$tiddler$&quot; mode=&quot;block&quot; /&gt;
-&lt;/$reveal&gt;
-&lt;/$set&gt;
-\end
-
-
----------------------------------------------
-
-
-```
-\define slider(label,tiddler)
-&lt;$set name=&quot;revealState&quot; value=&lt;&lt;qualify &quot;$:/state-reveal-$tiddler$&quot;&gt;&gt;&gt;
-&lt;h2&gt;
-  &lt;$reveal type=&quot;nomatch&quot; state=&lt;&lt;revealState&gt;&gt; text=&quot;yes&quot;&gt;
-    &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot; set=&lt;&lt;revealState&gt;&gt; setTo=&quot;yes&quot;&gt;
-      {{$:/core/images/right-arrow}}
-    &lt;/$button&gt;
-  &lt;/$reveal&gt;
-  &lt;$reveal type=&quot;match&quot; state=&lt;&lt;revealState&gt;&gt; text=&quot;yes&quot;&gt;
-    &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot; set=&lt;&lt;revealState&gt;&gt; setTo=&quot;no&quot;&gt;
-      {{$:/core/images/down-arrow}}
-    &lt;/$button&gt;
-  &lt;/$reveal&gt;
-
-&lt;$link to=&quot;$tiddler$&quot;&gt;
-  &lt;$view tiddler=&quot;$tiddler$&quot; field=&quot;title&quot;&gt;
-    &lt;$text text=&quot;$label$&quot;/&gt;
-  &lt;/$view&gt;
-&lt;/$link&gt;
-  
-&lt;/h2&gt;
-
-&lt;$reveal type=&quot;match&quot; state=&lt;&lt;revealState&gt;&gt; text=&quot;yes&quot;&gt;
-&lt;$transclude tiddler=&quot;$tiddler$&quot; mode=&quot;block&quot; /&gt;
-&lt;/$reveal&gt;
-&lt;/$set&gt;
-\end
-```
-
-```
-Usage:
-&lt;&lt;slider &quot;label&quot; &quot;tiddler&quot;&gt;&gt;
-```
-
-```
-Advanced usage:
-&lt;$list filter=&quot;[tag[event]]&quot;&gt;
-&lt;$macrocall $name=&quot;slider&quot; label=??? tiddler=&lt;&lt;currentTiddler&gt;&gt; /&gt;
-&lt;/$list&gt;</pre>
-</div>
 <div created="20191010123116672" modified="20200714164402812" tags="$:/tags/Stylesheet $:/giffmex/stroll $:/giffmex/blinks" title="$:/.giffmex/.Stylesheet4Stroll" type="text/css">
 <pre>/*BOXES*/
 
@@ -959,7 +891,7 @@ background-color: &lt;&lt;colour tiddler-info-background&gt;&gt;;}
 }
 </pre>
 </div>
-<div caption="{{$:/core/images/preview-open}}" created="20200129233103456" modified="20200521151510697" tags="$:/tags/SideBar $:/giffmex/stroll $:/giffmex/blinks" title="$:/.giffmex/sidebar/tabs/strollcontrols">
+<div caption="{{$:/core/images/preview-open}}" created="20200129233103456" creator="MerrellDyer" modified="20201031062112999" modifier="MerrellDyer" tags="$:/giffmex/stroll $:/giffmex/blinks $:/tags/ControlPanel/Advanced" title="$:/.giffmex/sidebar/tabs/strollcontrols">
 <pre>\define tagreset() 
 &lt;$list filter=&quot;[tag[$:/giffmex/refs]sort[created]] -[[$(currentTiddler)$]]&quot; variable=&quot;removeme&quot;&gt;
 &lt;$action-listops  $tiddler=&lt;&lt;removeme&gt;&gt; $tags=&quot;+[remove[$:/tags/ViewTemplate]]&quot;/&gt;
@@ -1083,6 +1015,28 @@ background-color: &lt;&lt;colour tiddler-info-background&gt;&gt;;}
 
 &lt;/span&gt;
 </pre>
+</div>
+<div created="20201027004531479" creator="jondyer" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20201027004713836" modifier="jondyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles" type="text/css">
+<pre>/* BACK TO TOP */
+
+.back-top{
+float:right;
+clear:both;
+margin: 0 0 -25px 0;
+}
+.back-top a{
+color:#ddd;
+}
+
+.back-top a:hover{
+color:#999;
+}
+</pre>
+</div>
+<div created="20201027004720939" creator="jondyer" modified="20201027004755868" modifier="jondyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/ui/ViewTemplate/back-top">
+<pre>&lt;div class=&quot;back-top&quot;&gt;
+&lt;$link to=&lt;&lt;currentTiddler&gt;&gt;&gt;&lt;$view field=title/&gt; ^&lt;/$link&gt;
+&lt;/div&gt;</pre>
 </div>
 <div title="$:/build">
 <pre>Built from branch 'tiddlywiki-com' at commit 634ac92ba2cb142e85f90de584e028fd6d32e812 of https://github.com/Jermolene/TiddlyWiki5.git at 2019-05-11 19:04:12 UTC
@@ -10657,7 +10611,8 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/tg/chars-button]]</pre>
+# [[$:/.jondyer/styles]]
+# [[$:/.jondyer/ui/ViewTemplate/back-top]]</pre>
 </div>
 <div created="20200919175305391" creator="MerrellDyer" modified="20200919175305391" modifier="MerrellDyer" title="$:/Import!!popup-image.png">
 <pre>yes</pre>
@@ -12488,7 +12443,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201008230930023" creator="MerrellDyer" modified="20201008230930867" modifier="MerrellDyer" title="$:/state-reveal-apple_butter_1.jpg--1910793666">
 <pre>no</pre>
 </div>
-<div created="20201008231415531" creator="MerrellDyer" modified="20201008231416182" modifier="MerrellDyer" title="$:/state-reveal-apple_butter_1.jpg--53982697">
+<div created="20201008231415531" creator="MerrellDyer" modified="20201031070523033" modifier="MerrellDyer" title="$:/state-reveal-apple_butter_1.jpg--53982697">
 <pre>no</pre>
 </div>
 <div created="20201008230321917" creator="MerrellDyer" modified="20201008230322839" modifier="MerrellDyer" title="$:/state-reveal-apple_butter_1.jpg-21107712">
@@ -12554,11 +12509,11 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201030065918245" creator="MerrellDyer" modified="20201030225554563" modifier="MerrellDyer" title="$:/state/tab--1498284803">
 <pre>Context Search</pre>
 </div>
-<div created="20200919034444358" creator="MerrellDyer" modified="20201030225827165" modifier="MerrellDyer" title="$:/state/tab--1963855381">
+<div created="20200919034444358" creator="MerrellDyer" modified="20201031061500566" modifier="MerrellDyer" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Palette</pre>
 </div>
-<div created="20200919033612431" creator="MerrellDyer" modified="20201030070524604" modifier="MerrellDyer" title="$:/state/tab--2112689675">
-<pre>$:/core/ui/ControlPanel/Basics</pre>
+<div created="20200919033612431" creator="MerrellDyer" modified="20201031062035318" modifier="MerrellDyer" title="$:/state/tab--2112689675">
+<pre>$:/core/ui/ControlPanel/Advanced</pre>
 </div>
 <div created="20200919201201531" creator="MerrellDyer" modified="20201005052102682" modifier="MerrellDyer" title="$:/state/tab--682440758">
 <pre>$:/core/ui/TiddlerInfo/Fields</pre>
@@ -12566,22 +12521,22 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919034747434" creator="MerrellDyer" modified="20200919034749489" modifier="MerrellDyer" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20200919033625493" creator="MerrellDyer" modified="20201010191458254" modifier="MerrellDyer" title="$:/state/tab--959111941">
-<pre>$:/core/ui/ControlPanel/EditorTypes</pre>
+<div created="20200919033625493" creator="MerrellDyer" modified="20201031062152295" modifier="MerrellDyer" title="$:/state/tab--959111941">
+<pre>$:/.giffmex/sidebar/tabs/strollcontrols</pre>
 </div>
 <div created="20200919202522155" creator="MerrellDyer" modified="20201031031354070" modifier="MerrellDyer" title="$:/state/tab-1528275152">
 <pre>$:/core/ui/DefaultSearchResultList</pre>
 </div>
-<div created="20200416183327180" creator="MerrellDyer" modified="20201031003512420" modifier="MerrellDyer" title="$:/state/tab-1749438307">
+<div created="20200416183327180" creator="MerrellDyer" modified="20201031061918338" modifier="MerrellDyer" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
 <div created="20200416183332199" creator="MerrellDyer" modified="20201030225648089" modifier="MerrellDyer" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200919172153623" creator="MerrellDyer" modified="20201030232452532" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div created="20200919172153623" creator="MerrellDyer" modified="20201031070546373" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20200416183341514" creator="MerrellDyer" modified="20201031031726382" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20200416183341514" creator="MerrellDyer" modified="20201031071756525" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
 <div created="20200919034919855" creator="MerrellDyer" modified="20200919174732945" modifier="MerrellDyer" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -12593,7 +12548,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201008224838379" creator="MerrellDyer" modified="20201030232038274" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1169767673">
 <pre>close</pre>
 </div>
-<div created="20201008222931690" creator="MerrellDyer" modified="20201031000004785" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains-1843068618">
+<div created="20201008222931690" creator="MerrellDyer" modified="20201031071734391" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains-1843068618">
 <pre>close</pre>
 </div>
 <div created="20201009035641769" creator="MerrellDyer" modified="20201018024709020" modifier="MerrellDyer" title="$:/state/toc/Contents-Breads--1169767673">
@@ -12608,7 +12563,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201009045122468" creator="MerrellDyer" modified="20201018043430006" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast--1169767673">
 <pre>close</pre>
 </div>
-<div created="20201008232024605" creator="MerrellDyer" modified="20201031003457686" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast-1843068618">
+<div created="20201008232024605" creator="MerrellDyer" modified="20201031071133239" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast-1843068618">
 <pre>close</pre>
 </div>
 <div created="20201005042056282" creator="MerrellDyer" modified="20201010065502823" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts--1169767673">
@@ -12617,7 +12572,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200920050128811" creator="MerrellDyer" modified="20200920050129512" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts-1637712383">
 <pre>close</pre>
 </div>
-<div created="20201004051253764" creator="MerrellDyer" modified="20201031001356194" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts-1843068618">
+<div created="20201004051253764" creator="MerrellDyer" modified="20201031071735304" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts-1843068618">
 <pre>close</pre>
 </div>
 <div created="20200920230812740" creator="MerrellDyer" modified="20201004010048779" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts-881214892">
@@ -12656,7 +12611,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201008230605146" creator="MerrellDyer" modified="20201018043425165" modifier="MerrellDyer" title="$:/state/toc/Contents-Sauces/Preserves--1169767673">
 <pre>close</pre>
 </div>
-<div created="20201008232032728" creator="MerrellDyer" modified="20201031031125019" modifier="MerrellDyer" title="$:/state/toc/Contents-Sauces/Preserves-1843068618">
+<div created="20201008232032728" creator="MerrellDyer" modified="20201031071046652" modifier="MerrellDyer" title="$:/state/toc/Contents-Sauces/Preserves-1843068618">
 <pre>close</pre>
 </div>
 <div created="20201008230141379" creator="MerrellDyer" modified="20201008230149197" modifier="MerrellDyer" title="$:/state/toc/Contents-Sides--1169767673">
@@ -12734,7 +12689,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div created="20201031031447842" creator="MerrellDyer" list="Welcome Featured" modified="20201031031712968" modifier="MerrellDyer" title="$:/StoryList">
+<div created="20201031064724690" creator="MerrellDyer" list="Welcome Featured" modified="20201031071749683" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20200919172328186" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -12791,11 +12746,11 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1280&quot;
+            &quot;text&quot;: &quot;1792&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;800&quot;
+            &quot;text&quot;: &quot;1120&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -12807,7 +12762,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201030235759171" creator="MerrellDyer" modified="20201031002750671" modifier="MerrellDyer" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20200417144934489" creator="MerrellDyer" modified="20201031031728343" modifier="MerrellDyer" title="$:/temp/search">
+<div created="20200417144934489" creator="MerrellDyer" modified="20201031071337558" modifier="MerrellDyer" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200919034500511" creator="MerrellDyer" modified="20201010190407597" modifier="MerrellDyer" title="$:/theme">
@@ -12980,24 +12935,16 @@ GLAZE
 * I serve it right out of the pan. If you wanted to serve it out of the pan, you'd need to use parchment paper to line the pan.
 </pre>
 </div>
-<div created="20201008230232879" creator="MerrellDyer" modified="20201008230954228" modifier="MerrellDyer" tags="Sauces/Preserves" title="apple butter">
-<pre>[img height=300 [apple_butter_3.jpg]]
+<div created="20201008230232879" creator="MerrellDyer" modified="20201031071026004" modifier="MerrellDyer" tags="Sauces/Preserves" title="apple butter">
+<pre>[img height=300 [apple_butter_1.jpg]]
 
-
-[[TODO]]: Add recipe.
-
-! Images
-&lt;&lt;slider title=&quot;apple_butter_1.jpg&quot;&gt;&gt;
-&lt;&lt;slider title=&quot;apple_butter_2.jpg&quot;&gt;&gt;
-&lt;&lt;slider title=&quot;apple_butter_3.jpg&quot;&gt;&gt;</pre>
+[[TODO]]: Add recipe. https://anoregoncottage.com/slow-cooker-maple-sweetened-apple-butter/
+</pre>
 </div>
-<div _canonical_uri="https://i.imgur.com/kaB8gkt.png" created="20201008230009219" creator="MerrellDyer" modified="20201010192525390" modifier="MerrellDyer" tags="$:/img" title="apple_butter_1.jpg" type="image/jpeg">
+<div _canonical_uri="https://i.imgur.com/fqDsmqd.png" created="20201008230120826" creator="MerrellDyer" modified="20201031071016959" modifier="MerrellDyer" tags="$:/img" title="apple_butter_1.jpg" type="image/jpeg">
 <pre></pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/7aop9Zt.png" created="20201008230041372" creator="MerrellDyer" modified="20201010192549889" modifier="MerrellDyer" tags="$:/img" title="apple_butter_2.jpg" type="image/jpeg">
-<pre></pre>
-</div>
-<div _canonical_uri="https://i.imgur.com/fqDsmqd.png" created="20201008230120826" creator="MerrellDyer" modified="20201010192604357" modifier="MerrellDyer" tags="$:/img" title="apple_butter_3.jpg" type="image/jpeg">
 <pre></pre>
 </div>
 <div created="20201031005429364" creator="MerrellDyer" modified="20201031010217102" modifier="MerrellDyer" tags="Pasta/Noodles Vegetarian Summer Salads Sauces/Preserves" title="asian peanut sauce">
@@ -13487,7 +13434,7 @@ Whisk together sourdough, eggs and oil. Mix dry ingredients separately to remove
 <div created="20200920031944352" creator="MerrellDyer" modified="20200920031944352" modifier="MerrellDyer" title="kale">
 <pre></pre>
 </div>
-<div created="20201031013910238" creator="MerrellDyer" modified="20201031013910238" modifier="MerrellDyer" title="Laurel's Kitchen">
+<div created="20201031013910238" creator="MerrellDyer" modified="20201031070153296" modifier="MerrellDyer" tags="Sources" title="Laurel's Kitchen">
 <pre></pre>
 </div>
 <div created="20200920035400862" creator="MerrellDyer" modified="20200920035400862" modifier="MerrellDyer" title="lemon">
@@ -13607,7 +13554,7 @@ Whisk together sourdough, eggs and oil. Mix dry ingredients separately to remove
 
 * For savory muffins: ½ cup cheese, bacon, grated onion, parmesan, etc.</pre>
 </div>
-<div created="20201008233630242" creator="MerrellDyer" modified="20201008233630242" modifier="MerrellDyer" title="Mark Bittman">
+<div created="20201008233630242" creator="MerrellDyer" modified="20201031064739095" modifier="MerrellDyer" tags="Sources" title="Mark Bittman">
 <pre></pre>
 </div>
 <div created="20200920225933887" creator="MerrellDyer" modified="20201004010014323" modifier="MerrellDyer" tags="Breads Sides" title="mark's flour tortillas">
@@ -13627,7 +13574,7 @@ Mix and rest for 10 minutes. Cut to desired size then roll out. Pan fry on mediu
 
 //Courtesy of Mark Murdock, tortilla maker extraordinaire.//</pre>
 </div>
-<div created="20201031001217241" creator="MerrellDyer" modified="20201031001217241" modifier="MerrellDyer" title="Martha Stewart">
+<div created="20201031001217241" creator="MerrellDyer" modified="20201031070203065" modifier="MerrellDyer" tags="Sources" title="Martha Stewart">
 <pre></pre>
 </div>
 <div color="#e79188" created="20201004051606975" creator="MerrellDyer" modified="20201030232642033" modifier="MerrellDyer" tags="Contents" title="Meat">
@@ -13656,7 +13603,7 @@ Mix and rest for 10 minutes. Cut to desired size then roll out. Pan fry on mediu
 # Ladle into bowls and serve with cheese, garnishes, and warmed corn tortillas.
 </pre>
 </div>
-<div created="20201018063508809" creator="MerrellDyer" modified="20201018063508809" modifier="MerrellDyer" title="Michael Ruhlman">
+<div created="20201018063508809" creator="MerrellDyer" modified="20201031070309339" modifier="MerrellDyer" tags="Sources" title="Michael Ruhlman">
 <pre></pre>
 </div>
 <div created="20200920230441007" creator="MerrellDyer" modified="20201031030732056" modifier="MerrellDyer" tags="Desserts Favorites Family" title="mom's pumpkin cookies">
@@ -13686,11 +13633,11 @@ Drop by spoonfuls onto well-greased baking sheet. Bake at 375° for ~15 min.
 
 </pre>
 </div>
-<div created="20201031015703222" creator="MerrellDyer" modified="20201031015703222" modifier="MerrellDyer" title="Moosewood">
+<div created="20201031015703222" creator="MerrellDyer" modified="20201031070142169" modifier="MerrellDyer" tags="Sources" title="Moosewood">
 <pre></pre>
 </div>
-<div created="20201030225609314" creator="MerrellDyer" modified="20201030225626301" modifier="MerrellDyer" tags="Beans/Grains Vegetarian" title="mujadara">
-<pre>Here is this recipe.</pre>
+<div created="20201030225609314" creator="MerrellDyer" modified="20201031071555337" modifier="MerrellDyer" tags="Beans/Grains Vegetarian" title="mujadara">
+<pre>[[TODO]]</pre>
 </div>
 <div created="20201017053231901" creator="MerrellDyer" difficulty="easy" modified="20201017053820304" modifier="MerrellDyer" tags="Desserts Quick" title="no-bake cookies">
 <pre>Classic, easy, no-bake cookies.
@@ -13760,7 +13707,7 @@ Drop by spoonfuls onto well-greased baking sheet. Bake at 375° for ~15 min.
 # When dough is ready, dust with more flour and cut slits in the top. Remove pot from oven and carefully place the dough and parchment paper in the pot.
 # Cover with lid and bake 40 minutes, then remove lid and bake another 10 to 15 minutes, until the crust is a deep chestnut brown and the internal temperature reads around 200 degrees. Cool on a rack.</pre>
 </div>
-<div created="20201008233630241" creator="MerrellDyer" modified="20201008233630241" modifier="MerrellDyer" title="NYT Cooking">
+<div created="20201008233630241" creator="MerrellDyer" modified="20201031065727534" modifier="MerrellDyer" tags="Sources" title="NYT Cooking">
 <pre></pre>
 </div>
 <div created="20201017053820307" creator="MerrellDyer" modified="20201017053820307" modifier="MerrellDyer" title="oats">
@@ -13813,8 +13760,10 @@ https://smittenkitchen.com/2013/07/one-pan-farro-with-tomatoes/</pre>
 <div caption="One-third ⅓" created="20201010055734812" creator="MerrellDyer" modified="20201010055908705" modifier="MerrellDyer" tags="$:/tags/TextEditor/Chars" title="One-third character">
 <pre>⅓</pre>
 </div>
-<div created="20201031024421196" creator="MerrellDyer" modified="20201031030611265" modifier="MerrellDyer" tags="Desserts Christmas" title="orange chocolate-chip cookies">
-<pre>! Ingredients
+<div created="20201031024421196" creator="MerrellDyer" modified="20201031071519553" modifier="MerrellDyer" tags="Desserts Christmas" title="orange chocolate-chip cookies">
+<pre>[img height=250 [orange_chocolate_cookies.png]]
+
+! Ingredients
 
 * 1 c. sugar
 * ⅔ c. butter
@@ -13837,6 +13786,9 @@ https://smittenkitchen.com/2013/07/one-pan-farro-with-tomatoes/</pre>
 # Bake 350 for 9-11 minutes.
 # If desired, when cooled, drizzle with chocolate: just melt about 1/4 c. chocolate chips in the microwave, stirring every 10 seconds. Place in plastic baggie, cut off a tiny bit of the corner and drizzle over cookies placed close together. 
 </pre>
+</div>
+<div _canonical_uri="https://i.imgur.com/nA8vXVW.png?1" created="20201031071338096" creator="MerrellDyer" modified="20201031071744906" modifier="MerrellDyer" tags="$:/img" title="orange_chocolate_cookies.png" type="image/png">
+<pre></pre>
 </div>
 <div created="20201005053215460" creator="MerrellDyer" modified="20201005053215460" modifier="MerrellDyer" title="pasta">
 <pre></pre>
@@ -13987,14 +13939,13 @@ https://cooking.nytimes.com/recipes/1013094-pasta-with-sardines-bread-crumbs-and
 # Stir in powdered sugar until smooth.
 # Spread on cookies; chill then cut into bars.</pre>
 </div>
-<div created="20201004050610723" creator="MerrellDyer" modified="20201008225231808" modifier="MerrellDyer" tags="Tarts/Pies Meat Poultry [[Special Occasion]]" title="pheasant pot pie">
-<pre>You can use pheasant, beef, chicken, veggies, or pretty much anything in a pot pie. Here's how we did pheasant.
+<div created="20201004050610723" creator="MerrellDyer" modified="20201031070503076" modifier="MerrellDyer" tags="Tarts/Pies Meat Poultry [[Special Occasion]]" title="pheasant pot pie">
+<pre>[img height=200 [pheasant_pie_1.jpg]]
+
+You can use pheasant, beef, chicken, veggies, or pretty much anything in a pot pie. Here's how we did pheasant.
 
 [[TODO]]: Fill this out
-
-
-! Images
-[img height=200 [pheasant_pie_1.jpg]] </pre>
+</pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/vI2k76a.jpg" created="20201005054604338" creator="MerrellDyer" modified="20201005054632638" modifier="MerrellDyer" tags="" title="pheasant_pie_1.jpg" type="image/jpeg">
 <pre></pre>
@@ -14097,7 +14048,7 @@ This is a traditional Finnish [[cardamom]] bread, egg-enriched and lightly sweet
 <div created="20200920231022874" creator="MerrellDyer" modified="20200920231022874" modifier="MerrellDyer" title="pumpkin">
 <pre></pre>
 </div>
-<div created="20201030234458575" creator="MerrellDyer" modified="20201030235303981" modifier="MerrellDyer" prep_time="45 minutes" tags="Desserts Fall" title="pumpkin sheet cake with molasses cream-cheese frosting">
+<div created="20201030234458575" creator="MerrellDyer" modified="20201031071246663" modifier="MerrellDyer" prep_time="45 minutes" tags="Desserts Fall" title="pumpkin sheet cake with molasses cream-cheese frosting">
 <pre>[img height=200 [pumpkin_sheet_cake.jpg]]
 
 ! Ingredients
@@ -14143,7 +14094,7 @@ FOR THE FROSTING:
 
 ! Notes
 
-This simple, warmly spiced pumpkin cake is enough to feed a crowd, making it a perfect holiday treat. It's also relatively versatile: You can serve it in the pan for an easy presentation, or transfer it to a platter for something a little more refined. The frosting is just enough to coat the cake in a thin layer, but, if you want more, you may want to more for a generous coating. And, for a more subtly flavored frosting, substitute an equal amount of dark maple syrup for the molasses, or skip the molasses entirely for pure cream-cheese flavor.</pre>
+This simple, warmly spiced pumpkin cake is enough to feed a crowd, making it a perfect holiday treat. It's also relatively versatile: You can serve it in the pan for an easy presentation, or transfer it to a platter for something a little more refined. The frosting is just enough to coat the cake in a thin layer, but you may want to make more for a generous coating. And, for a more subtly flavored frosting, substitute an equal amount of dark maple syrup for the molasses, or skip the molasses entirely for pure cream-cheese flavor.</pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/0dKebZC.jpg" created="20201030235043317" creator="MerrellDyer" modified="20201030235111994" modifier="MerrellDyer" tags="$:/img" title="pumpkin_sheet_cake.jpg" type="image/jpeg">
 <pre></pre>
@@ -14208,7 +14159,7 @@ This simple, warmly spiced pumpkin cake is enough to feed a crowd, making it a p
 <div created="20201031014306440" creator="MerrellDyer" modified="20201031014306440" modifier="MerrellDyer" title="rice noodles">
 <pre></pre>
 </div>
-<div created="20201031014823621" creator="MerrellDyer" modified="20201031014823621" modifier="MerrellDyer" title="Rick Bayless">
+<div created="20201031014823621" creator="MerrellDyer" modified="20201031070131369" modifier="MerrellDyer" tags="Sources" title="Rick Bayless">
 <pre></pre>
 </div>
 <div created="20201005051232740" creator="MerrellDyer" modified="20201005051232740" modifier="MerrellDyer" title="ricotta">
@@ -14285,7 +14236,7 @@ Makes one 9-inch skillet.
 # Divide dough in half, roll each into a circle. Cut into 16 wedges, roll large end to small. Place on greased baking sheet, cover and let rise ~1 hour.
 # Bake at 350° for 12-14 minutes or lightly golden.</pre>
 </div>
-<div created="20201008222844847" creator="MerrellDyer" modified="20201008223042061" modifier="MerrellDyer" title="Smitten Kitchen">
+<div created="20201008222844847" creator="MerrellDyer" modified="20201031065757570" modifier="MerrellDyer" tags="Sources" title="Smitten Kitchen">
 <pre>https://smittenkitchen.com/</pre>
 </div>
 <div created="20200919172146579" creator="MerrellDyer" description="A hearty, smoky, warming stew that's great for cold fall days." modified="20201005054947396" modifier="MerrellDyer" tags="Soups Vegetarian" title="smoky potato chickpea stew" type="text/vnd.tiddlywiki">
@@ -14334,6 +14285,15 @@ https://www.budgetbytes.com/smoky-potato-chickpea-stew/</pre>
 </div>
 <div color="#eee4a0" created="20200919202258183" creator="MerrellDyer" modified="20201030232742458" modifier="MerrellDyer" tags="Contents" title="Soups">
 <pre>&lt;&lt;list-links &quot;[tag[Soups]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20201031062230128" creator="MerrellDyer" list-after="Contents" modified="20201031065848833" modifier="MerrellDyer" tags="$:/tags/SideBar" title="Sources">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;a href=&quot;https://cooking.nytimes.com/guides/79-substitutions-for-cooking&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;NYT Cooking Substitution Guide&lt;/a&gt;
+
+&lt;&lt;list-links &quot;[tag[Sources]]&quot;&gt;&gt;
+
+&lt;/div&gt;</pre>
 </div>
 <div color="#5ad058" created="20201004050210921" creator="MerrellDyer" modified="20201030235942112" modifier="MerrellDyer" tags="Contents" title="Special Occasion">
 <pre>&lt;&lt;list-links &quot;[tag[Special Occasion]]&quot;&gt;&gt;</pre>
@@ -14388,7 +14348,7 @@ https://www.budgetbytes.com/smoky-potato-chickpea-stew/</pre>
 Mix it all together, adding the pecans when you serve so they don't get soggy. The rest keeps well in the fridge for a couple of days.
 </pre>
 </div>
-<div created="20201031013944307" creator="MerrellDyer" modified="20201031014834199" modifier="MerrellDyer" tags="Pasta/Noodles Vegetarian Poultry Quick" title="Valerie's Pad Thai">
+<div created="20201031013944307" creator="MerrellDyer" modified="20201031070019139" modifier="MerrellDyer" tags="Pasta/Noodles Vegetarian Poultry Quick" title="valerie's pad thai">
 <pre>! Ingredients
 
 * 8 oz. flat rice noodles
@@ -14423,8 +14383,10 @@ Mix it all together, adding the pecans when you serve so they don't get soggy. T
 <div color="#9bb904" created="20200919202307565" creator="MerrellDyer" modified="20201005055143710" modifier="MerrellDyer" tags="Contents" title="Vegetarian">
 <pre>&lt;&lt;list-links &quot;[tag[Vegetarian]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201031002551516" creator="MerrellDyer" modified="20201031010633671" modifier="MerrellDyer" tags="Beans/Grains Salads Sides Summer" title="warm beans with herbed tomatoes and goat cheese">
-<pre>! Ingredients
+<div created="20201031002551516" creator="MerrellDyer" modified="20201031071729505" modifier="MerrellDyer" tags="Beans/Grains Salads Sides Summer" title="warm beans with herbed tomatoes and goat cheese">
+<pre>[img height=200 [warm_beans_goat_cheese.png]]
+
+! Ingredients
 
 * 3 tomatoes, chopped; peeled and seeded
 * ¼ cup fresh basil; snipped
@@ -14443,6 +14405,9 @@ Mix it all together, adding the pecans when you serve so they don't get soggy. T
 # Heat beans to boiling in liquid from cans. Let simmer 2 minutes.
 # Drain and mix into tomatoes. Crumble goat cheese over the top and serve immediately.
 </pre>
+</div>
+<div _canonical_uri="https://i.imgur.com/cR5WRT9.png?1" created="20201031071604772" creator="MerrellDyer" modified="20201031071704413" modifier="MerrellDyer" tags="$:/img" title="warm_beans_goat_cheese.png" type="image/png">
+<pre></pre>
 </div>
 <div created="20200919172610287" creator="MerrellDyer" modified="20201031000126074" modifier="MerrellDyer" tags="" title="Welcome" type="text/vnd.tiddlywiki">
 <pre>This is our recipe book. Enjoy!
