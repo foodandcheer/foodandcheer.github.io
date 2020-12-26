@@ -157,11 +157,19 @@ Error message and password prompt
 
 <li>$:/.giffmex/ViewTemplate/refstranscludecollapse</li>
 
+<li>$:/.jondyer/language/Buttons/TagReplace/Caption</li>
+
+<li>$:/.jondyer/language/Buttons/TagReplace/Hint</li>
+
 <li>$:/.jondyer/macros/toc</li>
 
 <li>$:/.jondyer/styles</li>
 
+<li>$:/.jondyer/ui/Buttons/tag-replace</li>
+
 <li>$:/.jondyer/ui/ViewTemplate/back-top</li>
+
+<li>$:/.jondyer/utils/search-and-replace-tag</li>
 
 <li>$:/.tb/macros/list-search</li>
 
@@ -225,6 +233,8 @@ Error message and password prompt
 
 <li>$:/core/ui/Buttons/new-tiddler</li>
 
+<li>$:/core/ui/MoreSideBar/Tags</li>
+
 <li>$:/core/ui/PageTemplate</li>
 
 <li>$:/core/wiki/title</li>
@@ -246,6 +256,8 @@ Error message and password prompt
 <li>$:/GitHub/Username</li>
 
 <li>$:/Import</li>
+
+<li>$:/Import!!popup-$:/.jondyer/utils/search-and-replace-tag</li>
 
 <li>$:/Import!!popup-image.png</li>
 
@@ -583,6 +595,10 @@ Error message and password prompt
 
 <li>$:/temp/NewTagName</li>
 
+<li>$:/temp/RenameTags/replace</li>
+
+<li>$:/temp/RenameTags/search</li>
+
 <li>$:/temp/search</li>
 
 <li>$:/theme</li>
@@ -659,7 +675,7 @@ Error message and password prompt
 
 <li>Bon Appetit</li>
 
-<li>Breads</li>
+<li>Breads/Doughs</li>
 
 <li>Breakfast</li>
 
@@ -1266,6 +1282,12 @@ background-color: &lt;&lt;colour tiddler-info-background&gt;&gt;;}
 &lt;/span&gt;
 </pre>
 </div>
+<div created="20201226181911945" creator="MerrellDyer" modified="20201226182600513" modifier="MerrellDyer" tags="" title="$:/.jondyer/language/Buttons/TagReplace/Caption">
+<pre>tag replace tool</pre>
+</div>
+<div created="20201226181748540" creator="MerrellDyer" modified="20201226181827570" modifier="MerrellDyer" tags="" title="$:/.jondyer/language/Buttons/TagReplace/Hint">
+<pre>Open tag search-and-replace</pre>
+</div>
 <div created="20201104020947068" creator="MerrellDyer" modified="20201104022141587" modifier="MerrellDyer" tags="$:/tags/Macro" title="$:/.jondyer/macros/toc">
 <pre>\define jon-toc-linked-selective-expandable-body(tag,sort:&quot;&quot;,itemClassFilter:&quot; &quot;,exclude,path)
 &lt;$set name=&quot;toc-state&quot; value=&lt;&lt;qualify &quot;&quot;&quot;$:/state/toc$path$-$(currentTiddler)$&quot;&quot;&quot;&gt;&gt;&gt;
@@ -1352,7 +1374,7 @@ background-color: &lt;&lt;colour tiddler-info-background&gt;&gt;;}
 \end
 ```</pre>
 </div>
-<div created="20201027004531479" creator="jondyer" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20201206224702186" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles" type="text/css">
+<div created="20201027004531479" creator="jondyer" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20201226180341216" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles" type="text/css">
 <pre>/* BACK TO TOP */
 
 .back-top{
@@ -1385,12 +1407,73 @@ color:#999;
   white-space: nowrap; 
 }
 
+
+
+/* TABLES */
+.no-border,
+.no-border tr,
+.no-border th,
+.no-border td {
+border:0;
+}</pre>
+</div>
+<div caption="{{$:/core/images/tag-button}} {{$:/language/Buttons/TagManager/Caption}}" created="20201226181305852" creator="MerrellDyer" description="{{$:/language/Buttons/TagManager/Hint}}" modified="20201226182620205" modifier="MerrellDyer" title="$:/.jondyer/ui/Buttons/tag-replace">
+<pre>\whitespace trim
+\define control-panel-button(class)
+&lt;$button to=&quot;$:/.jondyer/utils/search-and-replace-tag&quot; tooltip={{$:/.jondyer/language/Buttons/TagReplace/Hint}} aria-label={{$:/.jondyer/language/Buttons/TagReplace/Caption}} class=&quot;&quot;&quot;$(tv-config-toolbar-class)$ $class$&quot;&quot;&quot;&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+{{$:/core/images/tag-button}}
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/.jondyer/language/Buttons/TagReplace/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+\end
+
+&lt;$list filter=&quot;[list[$:/StoryList]] +[field:title[$:/.jondyer/utils/search-and-replace-tag]]&quot; emptyMessage=&lt;&lt;control-panel-button&gt;&gt;&gt;
+&lt;&lt;control-panel-button &quot;tc-selected&quot;&gt;&gt;
+&lt;/$list&gt;
 </pre>
 </div>
 <div created="20201027004720939" creator="jondyer" modified="20201027004755868" modifier="jondyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/ui/ViewTemplate/back-top">
 <pre>&lt;div class=&quot;back-top&quot;&gt;
 &lt;$link to=&lt;&lt;currentTiddler&gt;&gt;&gt;&lt;$view field=title/&gt; ^&lt;/$link&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20201226172934466" creator="MerrellDyer" modified="20201226180503837" modifier="MerrellDyer" tags="" title="$:/.jondyer/utils/search-and-replace-tag">
+<pre>A solution to simplify renaming a tag and tagging tiddlers posted by [[Alberto Molina|https://groups.google.com/d/msg/tiddlywiki/OCntQ79DuwM/_vYCTYRXfaUJ]].
+
+&lt;table class=&quot;no-border&quot;&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;
+''Step 1:'' First, enter __old__ tag to the left, e.g. GettingStarted (tiddlers tagged with this should appear to the right)&lt;br&gt;
+''Step 2:'' Enter the __new__ tag to the right&lt;br&gt;
+''Step 3:'' Check desired tiddlers on the right to add the new tag&lt;br&gt;
+''Step 4:'' Uncheck any desired tiddlers on the left to remove the old tag&lt;br&gt;&lt;br&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;''Search old tag:'' &lt;$edit-text tiddler=&quot;$:/temp/RenameTags/search&quot; tag=&quot;input&quot; type=&quot;text&quot; default=&quot;&quot; placeholder=&quot;old tag to be removed&quot;/&gt;&lt;/td&gt;
+&lt;td&gt;''Search new tag:'' &lt;$edit-text tiddler=&quot;$:/temp/RenameTags/replace&quot; tag=&quot;input&quot; type=&quot;text&quot; default=&quot;&quot; placeholder=&quot;enter, then apply new tag&quot;/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;vertical-align:top;width:50%;&quot;&gt;
+
+&lt;$list filter=&quot;[!has[draft.of]tag{$:/temp/RenameTags/search}tag{$:/temp/RenameTags/replace}sort[created]]&quot;&gt;
+&lt;$checkbox tag={{$:/temp/RenameTags/search}}&gt; ~~&lt;$link to={{!!title}}&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;~~&lt;/$checkbox&gt;&lt;br&gt;
+&lt;/$list&gt;
+&lt;/td&gt;
+&lt;td style=&quot;vertical-align:top;width:50%;&quot;&gt;
+
+&lt;$list filter=&quot;[!has[draft.of]tag{$:/temp/RenameTags/search}!tag{$:/temp/RenameTags/replace}sort[created]]&quot;&gt;
+&lt;$checkbox tag={{$:/temp/RenameTags/replace}}&gt;&lt;$link to={{!!title}}&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;&lt;/$checkbox&gt;&lt;br&gt;
+
+&lt;/$list&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+You can use this in your wiki simply by dragging [[this link|$:/.jondyer/utils/search-and-replace-tag]] over.</pre>
 </div>
 <div bag="default" created="20141202200448128" creator="Tobias Beer" modified="20200521204052812" modifier="Tobias Beer" revision="0" summary="the [[list-search]] macro allows to filter list outputs" tags="$:/tags/Macro $:/giffmex/ideastew" title="$:/.tb/macros/list-search" type="text/vnd.tiddlywiki">
 <pre>\define list-search(
@@ -1435,8 +1518,8 @@ placeholder=&quot;$placeholder$&quot;/&gt;
 <div created="20200919035310899" creator="MerrellDyer" modified="20200919035310899" modifier="MerrellDyer" title="$:/config/Navigation/UpdateAddressBar">
 <pre>permalink</pre>
 </div>
-<div created="20200919034905121" creator="MerrellDyer" modified="20200919034905121" modifier="MerrellDyer" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
-<pre>show</pre>
+<div created="20200919034905121" creator="MerrellDyer" modified="20201226172148338" modifier="MerrellDyer" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
+<pre>hide</pre>
 </div>
 <div created="20200919034934023" creator="MerrellDyer" modified="20200919034936754" modifier="MerrellDyer" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -1447,8 +1530,8 @@ placeholder=&quot;$placeholder$&quot;/&gt;
 <div created="20170414222442239" creator="Mat von TWaddle" modified="20170613114319078" modifier="Mat von TWaddle" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/permaview">
 <pre>hide</pre>
 </div>
-<div created="20200919172313657" creator="MerrellDyer" modified="20200919172315457" modifier="MerrellDyer" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/refresh">
-<pre>show</pre>
+<div created="20200919172313657" creator="MerrellDyer" modified="20201226172155459" modifier="MerrellDyer" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/refresh">
+<pre>hide</pre>
 </div>
 <div bag="default" created="20200106214031452" modified="20200521150810088" revision="0" tags="$:/giffmex/stroll $:/giffmex/blinks" title="$:/config/RelinkOnRename" type="text/vnd.tiddlywiki">
 <pre>yes</pre>
@@ -10905,6 +10988,34 @@ placeholder=&quot;$placeholder$&quot;/&gt;
 &lt;/$button&gt;
 </pre>
 </div>
+<div caption="{{$:/language/SideBar/Tags/Caption}}" created="20201226183457521" creator="MerrellDyer" modified="20201226183459657" modifier="MerrellDyer" tags="$:/tags/MoreSideBar" title="$:/core/ui/MoreSideBar/Tags">
+<pre>&lt;$set name=&quot;tv-config-toolbar-icons&quot; value=&quot;yes&quot;&gt;
+
+&lt;$set name=&quot;tv-config-toolbar-text&quot; value=&quot;yes&quot;&gt;
+
+&lt;$set name=&quot;tv-config-toolbar-class&quot; value=&quot;&quot;&gt;
+
+{{$:/.jondyer/ui/Buttons/tag-replace}}
+
+{{$:/core/ui/Buttons/tag-manager}}
+
+&lt;/$set&gt;
+
+&lt;/$set&gt;
+
+&lt;/$set&gt;
+
+&lt;$list filter={{$:/core/Filters/AllTags!!filter}}&gt;
+
+&lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt;
+
+&lt;/$list&gt;
+
+&lt;hr class=&quot;tc-untagged-separator&quot;&gt;
+
+{{$:/core/ui/UntaggedTemplate}}
+</pre>
+</div>
 <div created="20170128165447442" creator="twMat" modified="20170128165506600" modifier="twMat" title="$:/core/ui/PageTemplate">
 <pre>\define containerClasses()
 tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
@@ -10992,7 +11103,13 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/.tb/macros/list-search]]</pre>
+# [[$:/.jondyer/language/Buttons/TagReplace/Caption]]
+# [[$:/.jondyer/language/Buttons/TagReplace/Hint]]
+# [[$:/.jondyer/ui/Buttons/tag-replace]]
+# [[$:/.jondyer/utils/search-and-replace-tag]]</pre>
+</div>
+<div created="20201226183410070" creator="MerrellDyer" modified="20201226183411678" modifier="MerrellDyer" title="$:/Import!!popup-$:/.jondyer/utils/search-and-replace-tag">
+<pre>no</pre>
 </div>
 <div created="20200919175305391" creator="MerrellDyer" modified="20200919175305391" modifier="MerrellDyer" title="$:/Import!!popup-image.png">
 <pre>yes</pre>
@@ -12638,8 +12755,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201017213633115" creator="MerrellDyer" modified="20201206230041425" modifier="MerrellDyer" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20201030065918245" creator="MerrellDyer" modified="20201104064603034" modifier="MerrellDyer" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Standard</pre>
+<div created="20201030065918245" creator="MerrellDyer" modified="20201226183435190" modifier="MerrellDyer" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20200919034444358" creator="MerrellDyer" modified="20201031061500566" modifier="MerrellDyer" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Palette</pre>
@@ -12668,17 +12785,17 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201119070929882" creator="MerrellDyer" modified="20201119074109034" modifier="MerrellDyer" title="$:/state/tab/buttermilk pancakes--1757874051">
 <pre>best buttermilk pancakes</pre>
 </div>
-<div created="20200919172153623" creator="MerrellDyer" modified="20201206225614196" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
+<div created="20200919172153623" creator="MerrellDyer" modified="20201226180657573" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
 <div created="20201119064833769" creator="MerrellDyer" modified="20201119065928502" modifier="MerrellDyer" title="$:/state/tab/mujaddara-1647183585">
 <pre>bi-rite mujadara</pre>
 </div>
-<div created="20200416183341514" creator="MerrellDyer" modified="20201207045540423" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20200416183341514" creator="MerrellDyer" modified="20201226184527106" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
-<div created="20201119080555624" creator="MerrellDyer" modified="20201119080556522" modifier="MerrellDyer" title="$:/state/tab/waffles-2125693699">
-<pre>grandpa's sourdough waffles</pre>
+<div created="20201119080555624" creator="MerrellDyer" modified="20201226174740270" modifier="MerrellDyer" title="$:/state/tab/waffles-2125693699">
+<pre>light, crisp waffles</pre>
 </div>
 <div created="20200919034919855" creator="MerrellDyer" modified="20200919174732945" modifier="MerrellDyer" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
@@ -12719,7 +12836,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201004005821317" creator="MerrellDyer" modified="20201004032028995" modifier="MerrellDyer" title="$:/state/toc/Contents-Breads-881214892">
 <pre>close</pre>
 </div>
-<div created="20201102223150393" creator="MerrellDyer" modified="20201119080657973" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast--1053134851">
+<div created="20201102223150393" creator="MerrellDyer" modified="20201226174811083" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast--1053134851">
 <pre>close</pre>
 </div>
 <div created="20201009045122468" creator="MerrellDyer" modified="20201018043430006" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast--1169767673">
@@ -12734,7 +12851,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201008232024605" creator="MerrellDyer" modified="20201119082609472" modifier="MerrellDyer" title="$:/state/toc/Contents-Breakfast-1843068618">
 <pre>close</pre>
 </div>
-<div created="20201102223107464" creator="MerrellDyer" modified="20201119080820798" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts--1053134851">
+<div created="20201102223107464" creator="MerrellDyer" modified="20201226174306682" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts--1053134851">
 <pre>close</pre>
 </div>
 <div created="20201005042056282" creator="MerrellDyer" modified="20201010065502823" modifier="MerrellDyer" title="$:/state/toc/Contents-Desserts--1169767673">
@@ -12758,7 +12875,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201030235844569" creator="MerrellDyer" modified="20201118064354009" modifier="MerrellDyer" title="$:/state/toc/Contents-Family-1843068618">
 <pre>close</pre>
 </div>
-<div created="20201119080825194" creator="MerrellDyer" modified="20201119080913814" modifier="MerrellDyer" title="$:/state/toc/Contents-Favorites--1053134851">
+<div created="20201119080825194" creator="MerrellDyer" modified="20201226174732406" modifier="MerrellDyer" title="$:/state/toc/Contents-Favorites--1053134851">
 <pre>close</pre>
 </div>
 <div created="20200920050130476" creator="MerrellDyer" modified="20200920050131399" modifier="MerrellDyer" title="$:/state/toc/Contents-Favorites-1637712383">
@@ -12968,7 +13085,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div list="Welcome Featured" title="$:/StoryList">
+<div created="20201226052336845" creator="MerrellDyer" list="Welcome Featured" modified="20201226184345620" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20200919172328186" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -12980,8 +13097,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201104035417977" creator="MerrellDyer" modified="20201104035421266" modifier="MerrellDyer" title="$:/temp/{currentTiddler}">
 <pre></pre>
 </div>
-<div created="20200417144937811" creator="MerrellDyer" modified="20201104064601585" modifier="MerrellDyer" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20200417144937811" creator="MerrellDyer" modified="20201226183440141" modifier="MerrellDyer" title="$:/temp/advancedsearch">
+<pre>core/ui/More</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -13028,11 +13145,11 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1792&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1120&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -13059,7 +13176,13 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201030235759171" creator="MerrellDyer" modified="20201206222431272" modifier="MerrellDyer" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20200417144934489" creator="MerrellDyer" modified="20201206230105101" modifier="MerrellDyer" title="$:/temp/search">
+<div created="20201226184254218" creator="MerrellDyer" modified="20201226184303733" modifier="MerrellDyer" title="$:/temp/RenameTags/replace">
+<pre>Breads/Doughs</pre>
+</div>
+<div created="20201226175110552" creator="MerrellDyer" modified="20201226184251389" modifier="MerrellDyer" title="$:/temp/RenameTags/search">
+<pre>Breads</pre>
+</div>
+<div created="20200417144934489" creator="MerrellDyer" modified="20201226172307290" modifier="MerrellDyer" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200919034500511" creator="MerrellDyer" modified="20201010190407597" modifier="MerrellDyer" title="$:/theme">
@@ -13697,7 +13820,7 @@ Flavor combination ideas:
 <div created="20201008223611699" creator="MerrellDyer" modified="20201104064309084" modifier="MerrellDyer" tags="Sources" title="Bon Appetit">
 <pre>https://www.bonappetit.com/</pre>
 </div>
-<div color="#dcbe90" created="20200920225843410" creator="MerrellDyer" modified="20201206223434581" modifier="MerrellDyer" tags="Contents" title="Breads">
+<div color="#dcbe90" created="20200920225843410" creator="MerrellDyer" modified="20201226184521841" modifier="MerrellDyer" tags="Contents" title="Breads/Doughs">
 <pre>&lt;&lt;list-search
 filter:&quot;[tag&lt;currentTiddler&gt;]&quot;
 search:&quot;search&quot;
@@ -14337,7 +14460,7 @@ herbs.</pre>
 <div created="20200920035400861" creator="MerrellDyer" modified="20200920035400861" modifier="MerrellDyer" title="eggs">
 <pre></pre>
 </div>
-<div created="20201116200033175" creator="MerrellDyer" modified="20201116200625293" modifier="MerrellDyer" tags="Breads" title="english muffin bread">
+<div created="20201116200033175" creator="MerrellDyer" modified="20201226184503571" modifier="MerrellDyer" tags="Breads/Doughs" title="english muffin bread">
 <pre>Makes 4 loaves
 
 ! Ingredients
@@ -14497,7 +14620,7 @@ Servings: 4
 <pre>&lt;&lt;list-links &quot;[tag&lt;currentTiddler&gt;]&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20201017063314363" creator="MerrellDyer" modified="20201017065104740" modifier="MerrellDyer" tags="Breads" title="french bread (cold oven)">
+<div created="20201017063314363" creator="MerrellDyer" modified="20201226184459621" modifier="MerrellDyer" tags="Breads/Doughs" title="french bread (cold oven)">
 <pre>! Ingredients
 * 2 Tbsp yeast
 * 1 Tbsp sugar
@@ -14587,7 +14710,7 @@ This recipe is abundantly flexible.
 <div created="20201004051437723" creator="MerrellDyer" modified="20201004051437723" modifier="MerrellDyer" title="ginger">
 <pre></pre>
 </div>
-<div created="20201103233651262" creator="MerrellDyer" modified="20201103233912828" modifier="MerrellDyer" tags="Breads" title="golden northern cornbread">
+<div created="20201103233651262" creator="MerrellDyer" modified="20201226184456843" modifier="MerrellDyer" tags="Breads/Doughs" title="golden northern cornbread">
 <pre>By: [[Best Recipe]]                                            
 
 ! Ingredients
@@ -14779,7 +14902,7 @@ Makes 3-4 servings
 # Stir the rice. Remove the inner pot out of Instant Pot casing, set it on the trivet or potholder, then cover.
 # Let the rice steam in the pot at least 10 min before serving.</pre>
 </div>
-<div created="20201109000555167" creator="MerrellDyer" modified="20201109000950831" modifier="MerrellDyer" tags="Breads" title="irish soda bread">
+<div created="20201109000555167" creator="MerrellDyer" modified="20201226184457080" modifier="MerrellDyer" tags="Breads/Doughs" title="irish soda bread">
 <pre>by Darina Allen, from [[Fine Cooking]] 121
 
 Serves 8 
@@ -14929,7 +15052,7 @@ Variations:
 # Cornmeal Waffles: Substitute 1/2 cup cornmeal for 1/2 cup of the flour (keep the cornstarch).
 # Cranberry Orange Waffles: Stir 2 tsp. finely grated orange zest and 1/2 cup coarsely chopped dried cranberries into the batter.</pre>
 </div>
-<div created="20201017223153072" creator="MerrellDyer" modified="20201018024516260" modifier="MerrellDyer" tags="Breads Snacks Breakfast Desserts" title="make-it-up muffins">
+<div created="20201017223153072" creator="MerrellDyer" modified="20201226184503143" modifier="MerrellDyer" tags="Snacks Breakfast Desserts Breads/Doughs" title="make-it-up muffins">
 <pre>! Ingredients
 
 !!! Wet ingredients
@@ -14997,7 +15120,7 @@ TIME: 1 hour
 <div created="20201008233630242" creator="MerrellDyer" modified="20201031064739095" modifier="MerrellDyer" tags="Sources" title="Mark Bittman">
 <pre></pre>
 </div>
-<div created="20200920225933887" creator="MerrellDyer" modified="20201004010014323" modifier="MerrellDyer" tags="Breads Sides" title="mark's flour tortillas">
+<div created="20200920225933887" creator="MerrellDyer" modified="20201226184326124" modifier="MerrellDyer" tags="Sides Breads/Doughs" title="mark's flour tortillas">
 <pre>Full batch (~16 tortillas)
 
 ! Ingredients
@@ -15214,7 +15337,7 @@ In 1997, after years of enduring the myth, Neiman Marcus came up with a recipe �
 * Can add various other items like sunflower seeds, chopped nuts, chia seeds, other dried fruit, etc.
 * May substitute almond butter instead.</pre>
 </div>
-<div created="20201030233634369" creator="MerrellDyer" modified="20201030233705194" modifier="MerrellDyer" tags="Breads" title="no-knead bread">
+<div created="20201030233634369" creator="MerrellDyer" modified="20201226184456427" modifier="MerrellDyer" tags="Breads/Doughs" title="no-knead bread">
 <pre>Slightly adapted from Jim Lahey's //My Bread//
 
 ! Ingredients
@@ -15700,7 +15823,7 @@ https://cooking.nytimes.com/recipes/3783-original-plum-torte</pre>
 <pre>&lt;&lt;list-links &quot;[tag&lt;currentTiddler&gt;]&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20201008225354138" creator="MerrellDyer" modified="20201010191237103" modifier="MerrellDyer" tags="[[Special Occasion]] Breads Winter Christmas" title="pulla">
+<div created="20201008225354138" creator="MerrellDyer" modified="20201226184453480" modifier="MerrellDyer" tags="[[Special Occasion]] Winter Christmas Breads/Doughs" title="pulla">
 <pre>[img height=400 [pulla.jpg]]
 
 This is a traditional Finnish [[cardamom]] bread, egg-enriched and lightly sweetened. It is related to similar loaves from Sweden (//bulle//), Romania, Poland, and other countries. Makes 3 braided loaves.
@@ -15792,7 +15915,7 @@ This simple, warmly spiced pumpkin cake is enough to feed a crowd, making it a p
 <div color="#b4c83c" created="20201030230325894" creator="MerrellDyer" modified="20201206222821821" modifier="MerrellDyer" title="Quick">
 <pre></pre>
 </div>
-<div created="20201109005514173" creator="MerrellDyer" modified="20201109010554635" modifier="MerrellDyer" tags="Breads Desserts" title="quick bread formula">
+<div created="20201109005514173" creator="MerrellDyer" modified="20201226184457271" modifier="MerrellDyer" tags="Desserts Breads/Doughs" title="quick bread formula">
 <pre>by Abigail Johnson Dodge, from [[Fine Cooking]] Issue 125
 
 Yields one loaf; serves 10
@@ -15994,7 +16117,7 @@ search:&quot;search&quot;
 state:&quot;$:/temp/list-search/$(currentTiddler)$&quot;
  &gt;&gt;</pre>
 </div>
-<div created="20201010054138647" creator="MerrellDyer" difficulty="medium" modified="20201010191114322" modifier="MerrellDyer" tags="Breads Favorites Breakfast" title="skillet buttermilk biscuits">
+<div created="20201010054138647" creator="MerrellDyer" difficulty="medium" modified="20201226184454504" modifier="MerrellDyer" tags="Favorites Breakfast Breads/Doughs" title="skillet buttermilk biscuits">
 <pre>This, combined with [[brown butter and sage sausage gravy]] will make you fat and happy for weekend brunch. These biscuits are slightly sweet and very buttery, all-around delicious. 
 
 Makes one 9-inch skillet.
@@ -16026,7 +16149,7 @@ Makes one 9-inch skillet.
 * The dough is //super// sticky, don't be surprised. Just use plenty of flour for shaping.
 * If I'm feeling extra frisky I'll brush the biscuits with butter both before and after baking. No regrets.</pre>
 </div>
-<div created="20201017071904391" creator="MerrellDyer" modified="20201017072443454" modifier="MerrellDyer" tags="Breads Sides" title="small sweet roll-ups">
+<div created="20201017071904391" creator="MerrellDyer" modified="20201226184455932" modifier="MerrellDyer" tags="Sides Breads/Doughs" title="small sweet roll-ups">
 <pre>These are soft little biscuit-like fellas with a little sweetness, lovely with honey or jam.
 
 ! Ingredients
@@ -16112,7 +16235,7 @@ state:&quot;$:/temp/list-search/$(currentTiddler)$&quot;
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20201206220500623" creator="MerrellDyer" modified="20201206225457342" modifier="MerrellDyer" tags="Breads Snacks" title="sourdough crackers">
+<div created="20201206220500623" creator="MerrellDyer" modified="20201226184457462" modifier="MerrellDyer" tags="Snacks Breads/Doughs" title="sourdough crackers">
 <pre>|!Prep | 25 mins |
 |!Bake | 20-25 mins |
 |!Total | 1 hr 25 mins |
@@ -16146,7 +16269,7 @@ Source: [[King Arthur Flour]]
 ,,https://www.kingarthurbaking.com/recipes/sourdough-crackers-recipe
 ,,</pre>
 </div>
-<div created="20201206220822975" creator="MerrellDyer" modified="20201206222434529" modifier="MerrellDyer" tags="Breads Ferments" title="sourdough starter">
+<div created="20201206220822975" creator="MerrellDyer" modified="20201226184458429" modifier="MerrellDyer" tags="Ferments Breads/Doughs" title="sourdough starter">
 <pre>! Starting from Scratch
 
 Combine flour with water in a large jar, leave covered loosely at ~70F for 24 hours.
@@ -16260,7 +16383,7 @@ Makes 8 servings.</pre>
 <div color="#ababab" created="20201206223743839" creator="MerrellDyer" modified="20201206223749510" modifier="MerrellDyer" title="Tips">
 <pre></pre>
 </div>
-<div created="20200919174641567" creator="MerrellDyer" modified="20201031031707307" modifier="MerrellDyer" tags="" title="TODO">
+<div created="20200919174641567" creator="MerrellDyer" modified="20201226183528212" modifier="MerrellDyer" tags="" title="TODO">
 <pre>* ~~Add favicon~~
 * ~~Support images~~
 * ~~Add TOC~~
@@ -16270,9 +16393,14 @@ Makes 8 servings.</pre>
 ** http://j.d.simplemobile.tiddlyspot.com/
 ** https://github.com/timruffles/mobile-drag-drop
 * Transfer recipes
-* Sources tab in sidebar
-* Recently added on welcome tiddler
-</pre>
+* ~~Sources tab in sidebar~~
+* ~~Recently added on welcome tiddler~~
+* ~~Search-and-replace tag~~
+* Read-only mode (button?)
+* New Recipe template and button
+* More obvious Home button?
+* Consider changing to single-tiddler view (instead of story view)
+* Add ximg macro to make it easy to add images</pre>
 </div>
 <div caption="Two-thirds ⅔" created="20201010055912559" creator="MerrellDyer" modified="20201010055939957" modifier="MerrellDyer" tags="$:/tags/TextEditor/Chars" title="Two-thirds character">
 <pre>⅔</pre>
@@ -16371,7 +16499,7 @@ search:&quot;search&quot;
 state:&quot;$:/temp/list-search/$(currentTiddler)$&quot;
  &gt;&gt;</pre>
 </div>
-<div created="20201119080357140" creator="MerrellDyer" modified="20201119080503482" modifier="MerrellDyer" tags="Breakfast" title="waffles">
+<div created="20201119080357140" creator="MerrellDyer" modified="20201226174803837" modifier="MerrellDyer" tags="Breakfast" title="waffles">
 <pre>There are several variations of this dish!
 
 &lt;&lt;tabs
