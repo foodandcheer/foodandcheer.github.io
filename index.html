@@ -391,6 +391,8 @@ Error message and password prompt
 
 <li>$:/state/plugin-info--270617185-$:/themes/tiddlywiki/vanilla</li>
 
+<li>$:/state/sidebar</li>
+
 <li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--1963855381</li>
@@ -634,6 +636,8 @@ Error message and password prompt
 <li>golden northern cornbread</li>
 
 <li>grain salad formula</li>
+
+<li>grandpa cal’s stacked enchiladas</li>
 
 <li>grandpa stay’s buttermilk pancakes</li>
 
@@ -1126,26 +1130,26 @@ background-color: &lt;&lt;colour tiddler-info-background&gt;&gt;;}
 <div created="20201226181748540" creator="MerrellDyer" modified="20201226181827570" modifier="MerrellDyer" tags="" title="$:/.jondyer/language/Buttons/TagReplace/Hint">
 <pre>Open tag search-and-replace</pre>
 </div>
-<div created="20141116144017266" creator="Tobias Beer" modified="20210102024821760" modifier="MerrellDyer" summary="easily render images from an external source" tags="$:/tags/Macro" title="$:/.jondyer/macros/recipe-image">
+<div created="20141116144017266" creator="Tobias Beer" modified="20210102050530458" modifier="MerrellDyer" summary="easily render images from an external source" tags="$:/tags/Macro" title="$:/.jondyer/macros/recipe-image">
 <pre>\define imageAtPath(i, t, p, c)
 [img width=&quot;100%&quot; class=&quot;$c$&quot; [$t$|$p$$i$]]
 \end
 
-\define recipe-image-left(image, width:&quot;33%&quot;, tooltip, caption, path:&quot;$:/.jondyer/macros/recipe-image/path&quot;, class)
+\define recipe-image-left(image, width:&quot;50%&quot;, tooltip, caption, path:&quot;$:/.jondyer/macros/recipe-image/path&quot;, class)
 &lt;div class=&quot;image-float-left&quot; style=&quot;width:$width$&quot;&gt;
 &lt;$macrocall $name=&quot;imageAtPath&quot; p={{$path$}} i=&quot;$image$&quot; t=&quot;$tooltip$&quot; c=&quot;ximg $class$&quot;/&gt;
 $caption$
 &lt;/div&gt;
 \end
 
-\define recipe-image-right(image, width:&quot;33%&quot;, tooltip, caption, path:&quot;$:/.jondyer/macros/recipe-image/path&quot;, class)
+\define recipe-image-right(image, width:&quot;50%&quot;, tooltip, caption, path:&quot;$:/.jondyer/macros/recipe-image/path&quot;, class)
 &lt;div class=&quot;image-float-right&quot; style=&quot;width:$width$&quot;&gt;
 &lt;$macrocall $name=&quot;imageAtPath&quot; p={{$path$}} i=&quot;$image$&quot; t=&quot;$tooltip$&quot; c=&quot;ximg $class$&quot;/&gt;
 $caption$
 &lt;/div&gt;
 \end
 
-\define recipe-image-center(image, width:&quot;33%&quot;, tooltip, caption, path:&quot;$:/.jondyer/macros/recipe-image/path&quot;, class)
+\define recipe-image-center(image, width:&quot;50%&quot;, tooltip, caption, path:&quot;$:/.jondyer/macros/recipe-image/path&quot;, class)
 &lt;div class=&quot;image-center&quot; style=&quot;width:$width$&quot;&gt;
 &lt;$macrocall $name=&quot;imageAtPath&quot; p={{$path$}} i=&quot;$image$&quot; t=&quot;$tooltip$&quot; c=&quot;ximg $class$&quot;/&gt;
 $caption$
@@ -1309,9 +1313,10 @@ filter: alpha(opacity=100);
 opacity: 1;
 }</pre>
 </div>
-<div created="20210101195700348" creator="MerrellDyer" modified="20210101212234586" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/image" type="text/css">
+<div created="20210101195700348" creator="MerrellDyer" modified="20210102050648955" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/image" type="text/css">
 <pre>.image-float-right {
     float: right;
+    min-width: 200px;
     text-align: center;
     padding: 0.5em 0 1em 1em;
 }
@@ -13113,6 +13118,9 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201227041714942" creator="MerrellDyer" modified="20201227041721658" modifier="MerrellDyer" title="$:/state/plugin-info--270617185-$:/themes/tiddlywiki/vanilla">
 <pre>no</pre>
 </div>
+<div created="20210102050325935" creator="MerrellDyer" modified="20210102050333804" modifier="MerrellDyer" title="$:/state/sidebar">
+<pre>yes</pre>
+</div>
 <div created="20201226212020354" creator="MerrellDyer" modified="20201228015052841" modifier="MerrellDyer" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
@@ -13131,7 +13139,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226210914653" creator="MerrellDyer" modified="20210102030425341" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210102030659433" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20201226210912360" creator="MerrellDyer" modified="20210102051052661" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
 <div created="20210102023731894" creator="MerrellDyer" modified="20210102025039377" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1053134851">
@@ -13173,7 +13181,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div created="20210102025806824" creator="MerrellDyer" list="Welcome Featured" modified="20210102030435399" modifier="MerrellDyer" title="$:/StoryList">
+<div created="20210102050337961" creator="MerrellDyer" list="Welcome" modified="20210102050539072" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13182,7 +13190,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919172256406" creator="MerrellDyer" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar" modified="20201008213938283" modifier="MerrellDyer" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
-<div created="20200919034500511" creator="MerrellDyer" modified="20210102030657339" modifier="MerrellDyer" title="$:/theme">
+<div created="20200919034500511" creator="MerrellDyer" modified="20210102051049604" modifier="MerrellDyer" title="$:/theme">
 <pre>$:/themes/tiddlywiki/readonly</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20201228021710840" creator="MerrellDyer" dependents="$:/themes/tiddlywiki/snowwhite" description="Hides the ability to edit tiddlers" modified="20201228025919469" modifier="MerrellDyer" name="ReadOnly" plugin-type="theme" title="$:/themes/tiddlywiki/readonly" type="application/json" version="5.1.23">
@@ -14591,8 +14599,7 @@ state:&quot;$:/temp/list-search/$(currentTiddler)$&quot;
  &gt;&gt;</pre>
 </div>
 <div created="20201008223704702" creator="MerrellDyer" modified="20210102025702856" modifier="MerrellDyer" tags="" title="Featured">
-<pre>
-&lt;&lt;get [[sourdough crackers]]&gt;&gt;</pre>
+<pre>&lt;&lt;get [[sourdough crackers]]&gt;&gt;</pre>
 </div>
 <div color="#dcbe90" created="20201206223513531" creator="MerrellDyer" modified="20201206223514695" modifier="MerrellDyer" title="Ferments">
 <pre></pre>
@@ -14809,6 +14816,40 @@ Extra bold add-ins: dried fruit, cheese, toasted nuts and seeds, cooked beans
 1/4 cups of fresh herbs: chives, dill, parsley, basil, oregano, mint, cilantro, tarragon
 
 ''Mix'' together grains, add-ins, herbs, and 1/2 cup of vinaigrette. Taste and adjust. Serve at room temperature. 
+</pre>
+</div>
+<div created="20210102045817758" creator="MerrellDyer" modified="20210102050928031" modifier="MerrellDyer" recipe-source="" tags="Mexican Family Southwestern Vegetarian" title="grandpa cal’s stacked enchiladas" url-image="OTmOHul.jpg">
+<pre>
+This was the specialty of Zoe's grandpa, Calvin Merrell, who grew up near the Hatch Valley in New Mexico. These are New Mexico-style enchiladas, so the tortillas are stacked instead of rolled. Cal usually made them with red enchilada sauce because it was a crowd pleaser, but he loved green chiles, so we often make the recipe with green sauce instead. 
+
+
+! Ingredients
+* Corn tortillas (stale is fine)
+* Canola or sunflower oil
+* Red or green enchilada sauce (can be mixed with salsa or canned chiles- hatch is best)
+* Grated cheddar cheese
+* Eggs
+* Thinly sliced red onion
+* Lettuce or cabbage, shredded
+
+
+! Directions
+# Heat the enchilada sauce and chilies, if using, in a saucepan.
+# Heat a frying pan with 1 centimeter of oil on medium heat. 
+# Fry each tortilla briefly until the edges are just crispy, but not tough. 
+# After frying each tortilla, dunk it in the sauce until coated, sprinkle with cheese and stack on plates in the oven. 
+# Fry eggs with runny yolks.
+# Top the tortillas with eggs, onion and lettuce. 
+
+! Notes
+* Also good with red enchilada sauce (which is how he usually served it). 
+* ~3-4 tortillas and 1 egg per person is a typical serving. 
+* would also be good with diced tomato, black olives, sour cream, avocado and/or cilantro on top. 
+
+
+|!Prep | 10 mins |
+|!Cook | 30 mins |
+|!Total | 40 mins |
 </pre>
 </div>
 <div created="20201030235532451" creator="MerrellDyer" modified="20201119071147895" modifier="MerrellDyer" tabs="buttermilk pancakes" tags="Family" title="grandpa stay’s buttermilk pancakes">
@@ -15412,8 +15453,7 @@ In 1997, after years of enduring the myth, Neiman Marcus came up with a recipe �
 <pre>½</pre>
 </div>
 <div cook_time="40 min" created="20201008221545086" creator="MerrellDyer" difficulty="easy" image="one_pan_farro.jpg" modified="20210102023816807" modifier="MerrellDyer" prep_time="10 min" servings="2" tags="Beans/Grains Fall Winter Favorites Vegetarian Quick" title="one-pan farro w/ tomatoes">
-<pre>
-This is a favorite of ours, and can also be customized if you like. It's hearty, warming, deeply savory, and delicious. Serves 4 as a side, 2 as a hearty main. Thanks [[Smitten Kitchen]]!
+<pre>This is a favorite of ours, and can also be customized if you like. It's hearty, warming, deeply savory, and delicious. Serves 4 as a side, 2 as a hearty main. Thanks [[Smitten Kitchen]]!
 
 
 ! Ingredients
