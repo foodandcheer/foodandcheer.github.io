@@ -183,6 +183,10 @@ Error message and password prompt
 
 <li>$:/.jondyer/styles/image</li>
 
+<li>$:/.jondyer/styles/recipe</li>
+
+<li>$:/.jondyer/templates/RecipeFooter</li>
+
 <li>$:/.jondyer/templates/RecipeSkeleton</li>
 
 <li>$:/.jondyer/TODO</li>
@@ -1378,14 +1382,36 @@ opacity: 1;
   clear: both;
 }</pre>
 </div>
-<div created="20201226173035666" creator="MerrellDyer" modified="20210102030631288" modifier="MerrellDyer" recipe-source="" tags="" title="$:/.jondyer/templates/RecipeSkeleton" url-image="">
-<pre>|!Prep | 25 mins |
-|!Bake | 20-25 mins |
-|!Total | 1 hr 25 mins |
-|!Yield | ~100 crackers |
+<div created="20210102172047286" creator="MerrellDyer" modified="20210103041618315" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/recipe" type="text/css">
+<pre>.recipe-footer-line {
+     color:#5E81AC;
+     font-style:italic;
+}
 
+.recipe-footer-background {
+    background-color:#D8D8D8;
+}
 
-[summary]
+.recipe-footer-box {
+    margin: 1em;
+}</pre>
+</div>
+<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210103041828349" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
+<pre>&lt;br&gt;&lt;br&gt;
+
+&lt;$list variable=&quot;current-field&quot; filter=&quot;[all[current]fields[]prefix[recipe-]]&quot;&gt;
+&lt;$list filter=&quot;[all[current]has&lt;current-field&gt;]&quot;&gt;
+&lt;$set name=&quot;field-label&quot; filter=&quot;[&lt;current-field&gt;removeprefix[recipe-]titlecase[]]&quot;&gt;
+@@.recipe-footer-line &lt;&lt;field-label&gt;&gt;:@@ &lt;$transclude field=&lt;&lt;current-field&gt;&gt;&gt;&lt;/$transclude&gt;&lt;br&gt;
+&lt;/$set&gt;
+&lt;/$list&gt;
+&lt;/$list&gt;
+
+</pre>
+</div>
+<div created="20201226173035666" creator="MerrellDyer" modified="20210103040317726" modifier="MerrellDyer" recipe-author="" recipe-cook-time="" recipe-link="" recipe-portions="" recipe-prep-time="" recipe-source="" recipe-total-time="" tags="" title="$:/.jondyer/templates/RecipeSkeleton" url-image="">
+<pre>[summary]
+
 
 
 ! Ingredients
@@ -11708,7 +11734,7 @@ tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/.jondyer/ui/ViewTemplate/category-list]]</pre>
+# [[$:/.jondyer/styles/recipe]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -11716,7 +11742,7 @@ tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$
 <div created="20201227025315628" creator="MerrellDyer" modified="20201227030119622" modifier="MerrellDyer" title="$:/layout">
 <pre>$:/core/ui/PageTemplate</pre>
 </div>
-<div created="20200919034510021" creator="MerrellDyer" modified="20210102025235334" modifier="MerrellDyer" title="$:/palette">
+<div created="20200919034510021" creator="MerrellDyer" modified="20210103041935092" modifier="MerrellDyer" title="$:/palette">
 <pre>$:/palettes/Vanilla</pre>
 </div>
 <div bag="default" created="20200126141319129" modified="20200521150810414" revision="0" tags="$:/tags/Stylesheet $:/giffmex/stroll $:/giffmex/blinks" title="$:/plugins/danielo515/context/css" type="text/css">
@@ -13201,8 +13227,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226210914653" creator="MerrellDyer" modified="20210102152816676" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210102200235955" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Tools</pre>
+<div created="20201226210912360" creator="MerrellDyer" modified="20210103041940071" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<pre>Contents</pre>
 </div>
 <div created="20210102023731894" creator="MerrellDyer" modified="20210102025039377" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1053134851">
 <pre>close</pre>
@@ -13264,7 +13290,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div created="20210103034459807" creator="MerrellDyer" list="Welcome" modified="20210103034459807" modifier="MerrellDyer" title="$:/StoryList">
+<div created="20210103035329003" creator="MerrellDyer" list="Welcome Featured" modified="20210103041904925" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13273,8 +13299,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919172256406" creator="MerrellDyer" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar" modified="20201008213938283" modifier="MerrellDyer" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
-<div created="20200919034500511" creator="MerrellDyer" modified="20210103035057831" modifier="MerrellDyer" title="$:/theme">
-<pre>$:/themes/tiddlywiki/readonly</pre>
+<div created="20200919034500511" creator="MerrellDyer" modified="20210103035344575" modifier="MerrellDyer" title="$:/theme">
+<pre>$:/themes/tiddlywiki/snowwhite</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20201228021710840" creator="MerrellDyer" dependents="$:/themes/tiddlywiki/snowwhite" description="Hides the ability to edit tiddlers" modified="20201228025919469" modifier="MerrellDyer" name="ReadOnly" plugin-type="theme" title="$:/themes/tiddlywiki/readonly" type="application/json" version="5.1.23">
 <pre>{
@@ -15551,7 +15577,7 @@ In 1997, after years of enduring the myth, Neiman Marcus came up with a recipe �
 <div caption="One-half ½" created="20201009051435668" creator="MerrellDyer" modified="20201009051632491" modifier="MerrellDyer" tags="$:/tags/TextEditor/Chars" title="one-half character">
 <pre>½</pre>
 </div>
-<div cook_time="40 min" created="20201008221545086" creator="MerrellDyer" difficulty="easy" image="one_pan_farro.jpg" modified="20210102023816807" modifier="MerrellDyer" prep_time="10 min" servings="2" tags="Beans/Grains Fall Winter Favorites Vegetarian Quick" title="one-pan farro w/ tomatoes">
+<div cook_time="40 min" created="20201008221545086" creator="MerrellDyer" difficulty="easy" image="one_pan_farro.jpg" modified="20210103035543088" modifier="MerrellDyer" prep_time="10 min" recipe-link="https://smittenkitchen.com/2013/07/one-pan-farro-with-tomatoes/" recipe-source="[[Smitten Kitchen]]" servings="2" tags="Beans/Grains Fall Winter Favorites Vegetarian Quick" title="one-pan farro w/ tomatoes">
 <pre>This is a favorite of ours, and can also be customized if you like. It's hearty, warming, deeply savory, and delicious. Serves 4 as a side, 2 as a hearty main. Thanks [[Smitten Kitchen]]!
 
 
@@ -15581,8 +15607,7 @@ In 1997, after years of enduring the myth, Neiman Marcus came up with a recipe �
 ! Notes
 * There are several types of [[farro]] sold in grocery stores, most commonly semi-pearled. They all vary in cooking times, so make sure to check yours and adjust the recipe accordingly.
 
-
-https://smittenkitchen.com/2013/07/one-pan-farro-with-tomatoes/</pre>
+</pre>
 </div>
 <div caption="One-quarter ¼" created="20201009051541435" creator="MerrellDyer" modified="20201009051619299" modifier="MerrellDyer" tags="$:/tags/TextEditor/Chars" title="one-quarter character">
 <pre>¼</pre>
