@@ -1386,32 +1386,33 @@ opacity: 1;
   clear: both;
 }</pre>
 </div>
-<div created="20210102172047286" creator="MerrellDyer" modified="20210103041618315" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/recipe" type="text/css">
+<div created="20210102172047286" creator="MerrellDyer" modified="20210104033614578" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/recipe" type="text/css">
 <pre>.recipe-footer-line {
      color:#5E81AC;
      font-style:italic;
 }
 
-.recipe-footer-background {
-    background-color:#D8D8D8;
+.recipe-footer-table,
+.recipe-footer-table tr,
+.recipe-footer-table td {
+    border: none;
 }
 
 .recipe-footer-box {
     margin: 1em;
 }</pre>
 </div>
-<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210103041828349" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
-<pre>&lt;br&gt;&lt;br&gt;
-
+<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210104034002016" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
+<pre>&lt;br&gt;
+&lt;table class=&quot;recipe-footer-table&quot;&gt;
 &lt;$list variable=&quot;current-field&quot; filter=&quot;[all[current]fields[]prefix[recipe-]]&quot;&gt;
 &lt;$list filter=&quot;[all[current]has&lt;current-field&gt;]&quot;&gt;
 &lt;$set name=&quot;field-label&quot; filter=&quot;[&lt;current-field&gt;removeprefix[recipe-]titlecase[]]&quot;&gt;
-@@.recipe-footer-line &lt;&lt;field-label&gt;&gt;:@@ &lt;$transclude field=&lt;&lt;current-field&gt;&gt;&gt;&lt;/$transclude&gt;&lt;br&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align:right&quot;&gt;@@.recipe-footer &lt;&lt;field-label&gt;&gt;:@@&lt;/td&gt;&lt;td&gt;&lt;$transclude field=&lt;&lt;current-field&gt;&gt;&gt;&lt;/$transclude&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/$set&gt;
 &lt;/$list&gt;
 &lt;/$list&gt;
-
-</pre>
+&lt;/table&gt;</pre>
 </div>
 <div created="20201226173035666" creator="MerrellDyer" modified="20210103040317726" modifier="MerrellDyer" recipe-author="" recipe-cook-time="" recipe-link="" recipe-portions="" recipe-prep-time="" recipe-source="" recipe-total-time="" tags="" title="$:/.jondyer/templates/RecipeSkeleton" url-image="">
 <pre>[summary]
@@ -1432,7 +1433,7 @@ opacity: 1;
 
 </pre>
 </div>
-<div created="20200919174641567" creator="MerrellDyer" modified="20210101191102033" modifier="MerrellDyer" tags="" title="$:/.jondyer/TODO">
+<div created="20200919174641567" creator="MerrellDyer" modified="20210104035203176" modifier="MerrellDyer" tags="" title="$:/.jondyer/TODO">
 <pre>* ~~Add favicon~~
 * ~~Support images~~
 * ~~Add TOC~~
@@ -1449,9 +1450,11 @@ opacity: 1;
 * ~~New Recipe template and button~~
 * ~~More obvious Home button?~~
 * Consider changing to single-tiddler view (instead of story view)
-* Add ximg macro to make it easy to add images
+* ~~Add ximg macro to make it easy to add images~~
 * ~~Add dark mode switch button~~
-* ~~Fix bug with cancel changes button~~</pre>
+* ~~Fix bug with cancel changes button~~
+* Fix column break on home tiddler
+* Order of footer elements</pre>
 </div>
 <div caption="{{$:/.jondyer/images/whisk.svg}} Create a new recipe" created="20201226223213452" creator="MerrellDyer" description="Use this button to create a new recipe tiddler, based on the RecipeSkeleton" modified="20210102030332746" modifier="MerrellDyer" tags="$:/tags/PageControls" title="$:/.jondyer/ui/Buttons/new-recipe">
 <pre>&lt;$button class=&quot;tc-btn-invisible readonly-hidden&quot;&gt;
@@ -13231,7 +13234,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226210914653" creator="MerrellDyer" modified="20210102152816676" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210103045941770" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20201226210912360" creator="MerrellDyer" modified="20210104040350135" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
 <div created="20210102023731894" creator="MerrellDyer" modified="20210102025039377" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1053134851">
@@ -13294,7 +13297,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div list="Welcome Featured" title="$:/StoryList">
+<div created="20210104033441455" creator="MerrellDyer" list="Welcome Featured" modified="20210104034032819" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13303,7 +13306,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919172256406" creator="MerrellDyer" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar" modified="20201008213938283" modifier="MerrellDyer" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
-<div created="20200919034500511" creator="MerrellDyer" modified="20210103045935385" modifier="MerrellDyer" title="$:/theme">
+<div created="20200919034500511" creator="MerrellDyer" modified="20210104040348295" modifier="MerrellDyer" title="$:/theme">
 <pre>$:/themes/tiddlywiki/readonly</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20201228021710840" creator="MerrellDyer" dependents="$:/themes/tiddlywiki/snowwhite" description="Hides the ability to edit tiddlers" modified="20201228025919469" modifier="MerrellDyer" name="ReadOnly" plugin-type="theme" title="$:/themes/tiddlywiki/readonly" type="application/json" version="5.1.23">
@@ -14850,8 +14853,7 @@ This recipe is abundantly flexible.
 <pre></pre>
 </div>
 <div created="20210103042252256" creator="MerrellDyer" modified="20210103043029620" modifier="MerrellDyer" recipe-author="Susan Spungen" recipe-cook-time="" recipe-link="https://cooking.nytimes.com/recipes/1020655-gingery-brownie-crinkle-cookies?" recipe-portions="20 cookies" recipe-prep-time="" recipe-source="[[NYT Cooking]]" recipe-total-time="30 minutes" tags="Cookies Desserts Christmas" title="gingery brownie crinkle cookies" url-image="i6D8fYP.jpg">
-<pre>
-&lt;&lt;&lt;
+<pre>&lt;&lt;&lt;
 //These chocolate cookies are irresistible warm from the oven, when the chips or chunks inside are still luxuriously liquidy. They then cool to a fudgy, brownielike texture with a chewy edge — if any manage to stay around that long. Both fresh and candied ginger lend sophistication, but feel free to leave them out if you want a pure chocolate experience. These cookies are also ideal for late-night cravings: You can be eating them 30 minutes after you start measuring the cocoa powder.//
 
 &lt;&lt;&lt;
