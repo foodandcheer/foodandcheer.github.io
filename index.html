@@ -1402,13 +1402,14 @@ opacity: 1;
     margin: 1em;
 }</pre>
 </div>
-<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210104034002016" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
-<pre>&lt;br&gt;
-&lt;table class=&quot;recipe-footer-table&quot;&gt;
-&lt;$list variable=&quot;current-field&quot; filter=&quot;[all[current]fields[]prefix[recipe-]]&quot;&gt;
+<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210104044754302" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
+<pre>&lt;table class=&quot;recipe-footer-table&quot;&gt;
+&lt;$list variable=&quot;current-field&quot; filter=&quot;[all[current]fields[]prefix[recipe-]sortby[recipe-author recipe-source recipe-link recipe-portions recipe-prep-time recipe-cook-time recipe-total-time]]&quot;&gt;
 &lt;$list filter=&quot;[all[current]has&lt;current-field&gt;]&quot;&gt;
-&lt;$set name=&quot;field-label&quot; filter=&quot;[&lt;current-field&gt;removeprefix[recipe-]titlecase[]]&quot;&gt;
-&lt;tr&gt;&lt;td style=&quot;text-align:right&quot;&gt;@@.recipe-footer &lt;&lt;field-label&gt;&gt;:@@&lt;/td&gt;&lt;td&gt;&lt;$transclude field=&lt;&lt;current-field&gt;&gt;&gt;&lt;/$transclude&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;$set name=&quot;field-label&quot; filter=&quot;[&lt;current-field&gt;removeprefix[recipe-]search-replace[-],[ ]titlecase[]]&quot;&gt;
+&lt;$wikify name=&quot;label&quot; text=&lt;&lt;field-label&gt;&gt;&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align:right&quot;&gt;@@.recipe-footer-line &lt;&lt;label&gt;&gt;:@@&lt;/td&gt;&lt;td&gt;&lt;$transclude field=&lt;&lt;current-field&gt;&gt;&gt;&lt;/$transclude&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/$wikify&gt;
 &lt;/$set&gt;
 &lt;/$list&gt;
 &lt;/$list&gt;
@@ -13207,8 +13208,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201227041714942" creator="MerrellDyer" modified="20201227041721658" modifier="MerrellDyer" title="$:/state/plugin-info--270617185-$:/themes/tiddlywiki/vanilla">
 <pre>no</pre>
 </div>
-<div created="20210102185305776" creator="MerrellDyer" modified="20210102185305776" modifier="MerrellDyer" title="$:/state/showeditpreview">
-<pre>yes</pre>
+<div created="20210102185305776" creator="MerrellDyer" modified="20210104044716672" modifier="MerrellDyer" title="$:/state/showeditpreview">
+<pre>no</pre>
 </div>
 <div created="20210102050325935" creator="MerrellDyer" modified="20210102191120522" modifier="MerrellDyer" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -13234,7 +13235,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226210914653" creator="MerrellDyer" modified="20210102152816676" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210104040350135" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20201226210912360" creator="MerrellDyer" modified="20210104044845824" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
 <div created="20210102023731894" creator="MerrellDyer" modified="20210102025039377" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1053134851">
@@ -13297,7 +13298,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div created="20210104033441455" creator="MerrellDyer" list="Welcome Featured" modified="20210104034032819" modifier="MerrellDyer" title="$:/StoryList">
+<div created="20210104044515591" creator="MerrellDyer" list="Welcome Featured" modified="20210104044829298" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13306,7 +13307,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919172256406" creator="MerrellDyer" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar" modified="20201008213938283" modifier="MerrellDyer" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
-<div created="20200919034500511" creator="MerrellDyer" modified="20210104040348295" modifier="MerrellDyer" title="$:/theme">
+<div created="20200919034500511" creator="MerrellDyer" modified="20210104044844015" modifier="MerrellDyer" title="$:/theme">
 <pre>$:/themes/tiddlywiki/readonly</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20201228021710840" creator="MerrellDyer" dependents="$:/themes/tiddlywiki/snowwhite" description="Hides the ability to edit tiddlers" modified="20201228025919469" modifier="MerrellDyer" name="ReadOnly" plugin-type="theme" title="$:/themes/tiddlywiki/readonly" type="application/json" version="5.1.23">
