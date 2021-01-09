@@ -1356,15 +1356,19 @@ button svg.jondyer-image-palette-button {
   height: 30pt;
 }</pre>
 </div>
-<div created="20201227152232437" creator="MerrellDyer" modified="20201227152306253" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/hover-toolbar" type="text/css">
-<pre>.tc-tiddler-frame .tc-titlebar button {
-opacity: 0;
-transition: opacity .5s ease-in-out;
-}
-.tc-tiddler-frame:hover .tc-titlebar button {
-zoom: 1;
-filter: alpha(opacity=100);
-opacity: 1;
+<div created="20201227152232437" creator="MerrellDyer" modified="20210109034512225" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/hover-toolbar" type="text/css">
+<pre>/* desktop */
+@media only screen and (min-width: 992px) {
+  .tc-tiddler-frame .tc-titlebar button {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+  }
+
+  .tc-tiddler-frame:hover .tc-titlebar button {
+    zoom: 1;
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
 }</pre>
 </div>
 <div created="20210101195700348" creator="MerrellDyer" modified="20210102050648955" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/image" type="text/css">
@@ -13243,8 +13247,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226210914653" creator="MerrellDyer" modified="20210102152816676" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210108163310951" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Tools</pre>
+<div created="20201226210912360" creator="MerrellDyer" modified="20210109034621400" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<pre>Contents</pre>
 </div>
 <div created="20210102023731894" creator="MerrellDyer" modified="20210102025039377" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1053134851">
 <pre>close</pre>
@@ -13306,7 +13310,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div created="20210108163253262" creator="MerrellDyer" list="" modified="20210108170829052" modifier="MerrellDyer" title="$:/StoryList">
+<div created="20210109025724459" creator="MerrellDyer" list="Welcome Featured" modified="20210109025724459" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13315,8 +13319,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919172256406" creator="MerrellDyer" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar" modified="20201008213938283" modifier="MerrellDyer" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
-<div created="20200919034500511" creator="MerrellDyer" modified="20210108185004509" modifier="MerrellDyer" title="$:/theme">
-<pre>$:/themes/tiddlywiki/readonly</pre>
+<div created="20200919034500511" creator="MerrellDyer" modified="20210109025736416" modifier="MerrellDyer" title="$:/theme">
+<pre>$:/themes/tiddlywiki/snowwhite</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20201228021710840" creator="MerrellDyer" dependents="$:/themes/tiddlywiki/snowwhite" description="Hides the ability to edit tiddlers" modified="20201228025919469" modifier="MerrellDyer" name="ReadOnly" plugin-type="theme" title="$:/themes/tiddlywiki/readonly" type="application/json" version="5.1.23">
 <pre>{
