@@ -1184,7 +1184,7 @@ background-color: &lt;&lt;colour tiddler-info-background&gt;&gt;;}
 <div created="20201226181748540" creator="MerrellDyer" modified="20201226181827570" modifier="MerrellDyer" tags="" title="$:/.jondyer/language/Buttons/TagReplace/Hint">
 <pre>Open tag search-and-replace</pre>
 </div>
-<div created="20141116144017266" creator="Tobias Beer" modified="20210102050530458" modifier="MerrellDyer" summary="easily render images from an external source" tags="$:/tags/Macro" title="$:/.jondyer/macros/recipe-image">
+<div created="20141116144017266" creator="Tobias Beer" modified="20210109042611577" modifier="MerrellDyer" summary="easily render images from an external source" tags="$:/tags/Macro" title="$:/.jondyer/macros/recipe-image">
 <pre>\define imageAtPath(i, t, p, c)
 [img width=&quot;100%&quot; class=&quot;$c$&quot; [$t$|$p$$i$]]
 \end
@@ -1299,9 +1299,13 @@ $caption$
 \end
 ```</pre>
 </div>
-<div created="20201027004531479" creator="jondyer" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20201227232905651" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles" type="text/css">
-<pre>/* BACK TO TOP */
+<div created="20201027004531479" creator="jondyer" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20210109044231229" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles" type="text/css">
+<pre>.body-flex {
+  overflow: hidden;
+}
 
+
+/* BACK TO TOP */
 .back-top{
 float:right;
 clear:both;
@@ -1371,10 +1375,13 @@ button svg.jondyer-image-palette-button {
   }
 }</pre>
 </div>
-<div created="20210101195700348" creator="MerrellDyer" modified="20210102050648955" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/image" type="text/css">
-<pre>.image-float-right {
+<div created="20210101195700348" creator="MerrellDyer" modified="20210109041205866" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles/image" type="text/css">
+<pre>/* desktop */
+@media only screen and (min-width: 992px) {
+.image-float-right {
     float: right;
-    min-width: 200px;
+    max-width: 100%;
+    max-height: 100%;
     text-align: center;
     padding: 0.5em 0 1em 1em;
 }
@@ -1389,6 +1396,7 @@ button svg.jondyer-image-palette-button {
     margin-left: auto;
     margin-right: auto;
     text-align:center;
+}
 }
 
 .image-text:after,
@@ -1414,7 +1422,7 @@ button svg.jondyer-image-palette-button {
     margin: 1em;
 }</pre>
 </div>
-<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210104044754302" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
+<div created="20210102173013161" creator="MerrellDyer" list-after="$:/core/ui/ViewTemplate/body" modified="20210109040456200" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/.jondyer/templates/RecipeFooter">
 <pre>&lt;table class=&quot;recipe-footer-table&quot;&gt;
 &lt;$list variable=&quot;current-field&quot; filter=&quot;[all[current]fields[]prefix[recipe-]sortby[recipe-author recipe-source recipe-link recipe-portions recipe-prep-time recipe-cook-time recipe-total-time]]&quot;&gt;
 &lt;$list filter=&quot;[all[current]has&lt;current-field&gt;]&quot;&gt;
@@ -1446,7 +1454,7 @@ button svg.jondyer-image-palette-button {
 
 </pre>
 </div>
-<div created="20200919174641567" creator="MerrellDyer" modified="20210104035203176" modifier="MerrellDyer" tags="" title="$:/.jondyer/TODO">
+<div created="20200919174641567" creator="MerrellDyer" modified="20210109035524911" modifier="MerrellDyer" tags="" title="$:/.jondyer/TODO">
 <pre>* ~~Add favicon~~
 * ~~Support images~~
 * ~~Add TOC~~
@@ -1467,7 +1475,7 @@ button svg.jondyer-image-palette-button {
 * ~~Add dark mode switch button~~
 * ~~Fix bug with cancel changes button~~
 * Fix column break on home tiddler
-* Order of footer elements</pre>
+* ~~Order of footer elements~~</pre>
 </div>
 <div caption="{{$:/.jondyer/images/whisk.svg}} Create a new recipe" created="20201226223213452" creator="MerrellDyer" description="Use this button to create a new recipe tiddler, based on the RecipeSkeleton" modified="20210102030332746" modifier="MerrellDyer" tags="$:/tags/PageControls" title="$:/.jondyer/ui/Buttons/new-recipe">
 <pre>&lt;$button class=&quot;tc-btn-invisible readonly-hidden&quot;&gt;
@@ -1544,7 +1552,7 @@ state:&quot;$:/temp/list-search/$(currentTiddler)$&quot;
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20210102022343869" creator="MerrellDyer" modified="20210102022945068" modifier="MerrellDyer" tags="" title="$:/.jondyer/ui/ViewTemplate/recipe-image">
+<div created="20210102022343869" creator="MerrellDyer" modified="20210109041547678" modifier="MerrellDyer" tags="" title="$:/.jondyer/ui/ViewTemplate/recipe-image">
 <pre>&lt;$list variable=&quot;local-img&quot; filter=&quot;[all[current]has[image]get[image]]&quot;&gt;
 &lt;$macrocall
 $name=&quot;recipe-image-right&quot;
@@ -11705,8 +11713,8 @@ tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$
 &lt;/$vars&gt;
 </pre>
 </div>
-<div created="20210102023253019" creator="MerrellDyer" modified="20210102023258195" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/core/ui/ViewTemplate/body">
-<pre>&lt;$reveal tag=&quot;div&quot; class=&quot;tc-tiddler-body&quot; type=&quot;nomatch&quot; stateTitle=&lt;&lt;folded-state&gt;&gt; text=&quot;hide&quot; retain=&quot;yes&quot; animate=&quot;yes&quot;&gt;
+<div created="20210102023253019" creator="MerrellDyer" modified="20210109044201149" modifier="MerrellDyer" tags="$:/tags/ViewTemplate" title="$:/core/ui/ViewTemplate/body">
+<pre>&lt;$reveal tag=&quot;div&quot; class=&quot;tc-tiddler-body body-flex&quot; type=&quot;nomatch&quot; stateTitle=&lt;&lt;folded-state&gt;&gt; text=&quot;hide&quot; retain=&quot;yes&quot; animate=&quot;yes&quot;&gt;
 
 &lt;$list filter=&quot;[all[current]!has[plugin-type]!field:hide-body[yes]]&quot;&gt;
 
@@ -13223,7 +13231,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20210102185305776" creator="MerrellDyer" modified="20210108180815842" modifier="MerrellDyer" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20210102050325935" creator="MerrellDyer" modified="20210102191120522" modifier="MerrellDyer" title="$:/state/sidebar">
+<div created="20210102050325935" creator="MerrellDyer" modified="20210109042621088" modifier="MerrellDyer" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20201226212020354" creator="MerrellDyer" modified="20201228015052841" modifier="MerrellDyer" title="$:/state/tab--1498284803">
@@ -13247,7 +13255,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226210914653" creator="MerrellDyer" modified="20210102152816676" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210109034621400" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20201226210912360" creator="MerrellDyer" modified="20210109044253275" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
 <div created="20210102023731894" creator="MerrellDyer" modified="20210102025039377" modifier="MerrellDyer" title="$:/state/toc/Contents-Beans/Grains--1053134851">
@@ -13310,7 +13318,7 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div created="20210109025724459" creator="MerrellDyer" list="Welcome Featured" modified="20210109025724459" modifier="MerrellDyer" title="$:/StoryList">
+<div created="20210109025724459" creator="MerrellDyer" list="" modified="20210109044208966" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13527,7 +13535,7 @@ GLAZE
 * I serve it right out of the pan. If you wanted to serve it out of the pan, you'd need to use parchment paper to line the pan.
 </pre>
 </div>
-<div created="20210108181334676" creator="MerrellDyer" modified="20210108181954969" modifier="MerrellDyer" recipe-author="" recipe-cook-time="" recipe-link="" recipe-portions="25-30 aebleskivers" recipe-prep-time="" recipe-source="Dewey family" recipe-total-time="" tags="Scandinavian Breakfast Breads/Doughs [[Special Occasion]]" title="aebleskiver" url-image="zSq7d6T.jpg">
+<div created="20210108181334676" creator="MerrellDyer" modified="20210109040246170" modifier="MerrellDyer" recipe-author="" recipe-cook-time="" recipe-link="" recipe-portions="25-30 aebleskivers" recipe-prep-time="" recipe-source="Dewey family" recipe-total-time="" tags="Scandinavian Breakfast Breads/Doughs [[Special Occasion]]" title="aebleskiver" url-image="zSq7d6T.jpg">
 <pre>! Ingredients
 * 2 cups flour
 * 2 cups buttermilk
@@ -13543,10 +13551,9 @@ GLAZE
 # Preheat the pan well. Add oil 1/3 filling holes, then fill with batter.
 # Using a skewer to turn, cook on all sides till light brown and pick comes out clean. Drain on paper towels. 
 
+
 ! Notes
 * Roll in sugar or serve with jam.
-
-
 </pre>
 </div>
 <div color="#faaa50" created="20201118035522878" creator="MerrellDyer" modified="20210102171011869" modifier="MerrellDyer" tags="Cuisines" title="African">
