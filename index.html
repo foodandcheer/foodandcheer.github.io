@@ -1455,6 +1455,7 @@ Runs Google Analytics with the account number in the tiddler `$:/GoogleAnalytics
 // Export name and synchronous status
 exports.name = &quot;google-analytics&quot;;
 exports.platforms = [&quot;browser&quot;];
+exports.after = ["startup"];
 exports.synchronous = true;
 
 var CONFIG_CONSENT_REQUIRED_TITLE = &quot;$:/config/cookie-consent-required&quot;;
@@ -1472,7 +1473,7 @@ exports.startup = function() {
 			gaScript1.src = &quot;https://www.googletagmanager.com/gtag/js?id=&quot; + gaAccount;
 			gaScript1.async = true;
 			document.head.append(gaScript1);
-			
+
 			var gaScript2 = document.createElement('script');
 			gaScript2.text = `window.dataLayer = window.dataLayer || [];
 										function gtag(){dataLayer.push(arguments);}
