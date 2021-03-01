@@ -175,6 +175,8 @@ Error message and password prompt
 
 <li>$:/.jondyer/macros/toc</li>
 
+<li>$:/.jondyer/plugins/googleanalytics/googleanalytics.js</li>
+
 <li>$:/.jondyer/styles</li>
 
 <li>$:/.jondyer/styles/buttons</li>
@@ -313,8 +315,6 @@ Error message and password prompt
 
 <li>$:/GoogleAnalyticsAccount</li>
 
-<li>$:/GoogleAnalyticsDomain</li>
-
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -386,6 +386,8 @@ Error message and password prompt
 <li>$:/state-reveal-Work please--1550655484</li>
 
 <li>$:/state/edit/references--569002351</li>
+
+<li>$:/state/editpreviewtype</li>
 
 <li>$:/state/folded/TODO</li>
 
@@ -1434,6 +1436,75 @@ $caption$
 &lt;/$vars&gt;
 \end
 ```</pre>
+</div>
+<div created="20210228235204076" creator="MerrellDyer" modified="20210301010009230" modifier="MerrellDyer" module-type="startup" title="$:/.jondyer/plugins/googleanalytics/googleanalytics.js" type="application/javascript">
+<pre>/*\
+title: $:/.jondyer/plugins/googleanalytics/googleanalytics.js
+type: application/javascript
+module-type: startup
+
+Runs Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount`
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;google-analytics&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.synchronous = true;
+
+var CONFIG_CONSENT_REQUIRED_TITLE = &quot;$:/config/cookie-consent-required&quot;;
+var CONSENT_TITLE = &quot;$:/state/consent-banner/accepted&quot;; // &quot;&quot;: undeclared, &quot;yes&quot;: accepted, &quot;no&quot;: declined
+
+exports.startup = function() {
+	var hasInitialised = false;
+	var initialiseGoogleAnalytics = function() {
+			console.log(&quot;Initialising Google Analytics&quot;);
+			hasInitialised = true;
+			// get account number
+			var gaAccount = $tw.wiki.getTiddlerText(&quot;$:/GoogleAnalyticsAccount&quot;,&quot;&quot;).replace(/\n/g,&quot;&quot;);
+			// add &lt;script&gt; elements to head as instructed in GA setup directions --&gt; it will execute automatically
+			var gaScript1 = document.createElement('script');
+			gaScript1.src = &quot;https://www.googletagmanager.com/gtag/js?id=&quot; + gaAccount;
+			gaScript1.async = true;
+			document.head.append(gaScript1);
+			
+			var gaScript2 = document.createElement('script');
+			gaScript2.text = `window.dataLayer = window.dataLayer || [];
+										function gtag(){dataLayer.push(arguments);}
+										gtag('js', new Date());
+										gtag('config', '${gaAccount}');`
+			document.head.append(gaScript2);
+	};
+
+	// Initialise now if consent isn't required
+	if($tw.wiki.getTiddlerText(CONFIG_CONSENT_REQUIRED_TITLE) !== &quot;yes&quot;) {
+		initialiseGoogleAnalytics();
+	} else {
+		// Or has been granted already
+		if($tw.wiki.getTiddlerText(CONSENT_TITLE) === &quot;yes&quot;) {
+			initialiseGoogleAnalytics();
+		} else {
+			// Or when our config tiddler changes
+			$tw.wiki.addEventListener(&quot;change&quot;,function(changes) {
+				if(changes[CONSENT_TITLE]) {
+					if(!hasInitialised &amp;&amp; $tw.wiki.getTiddlerText(CONSENT_TITLE) === &quot;yes&quot;) {
+						initialiseGoogleAnalytics();
+					}
+				}
+			});
+		}
+	}
+};
+
+
+
+})();
+</pre>
 </div>
 <div created="20201027004531479" creator="jondyer" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20210109044231229" modifier="MerrellDyer" tags="$:/tags/Stylesheet" title="$:/.jondyer/styles" type="text/css">
 <pre>.body-flex {
@@ -11904,16 +11975,13 @@ tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$
 <div created="20201030065231493" creator="MerrellDyer" modified="20201030065233778" modifier="MerrellDyer" title="$:/GitHub/Username">
 <pre>foodandcheer</pre>
 </div>
-<div created="20210202050739107" creator="MerrellDyer" modified="20210202062020336" modifier="MerrellDyer" title="$:/GoogleAnalyticsAccount">
-<pre>UA-188669757-1</pre>
+<div created="20210202050739107" creator="MerrellDyer" modified="20210301000812663" modifier="MerrellDyer" title="$:/GoogleAnalyticsAccount">
+<pre>G-VZDZJQF1EY</pre>
 </div>
-<div created="20210202050741320" creator="MerrellDyer" modified="20210202050746853" modifier="MerrellDyer" title="$:/GoogleAnalyticsDomain">
-<pre>foodandcheer.github.io</pre>
-</div>
-<div status="complete" title="$:/Import">
+<div modified="20210301005918965" modifier="MerrellDyer" status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/.jondyer/styles/recipe]]</pre>
+# [[$:/.jondyer/plugins/googleanalytics/googleanalytics.js]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -11921,7 +11989,7 @@ tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$
 <div created="20201227025315628" creator="MerrellDyer" modified="20201227030119622" modifier="MerrellDyer" title="$:/layout">
 <pre>$:/core/ui/PageTemplate</pre>
 </div>
-<div created="20200919034510021" creator="MerrellDyer" modified="20210112164709113" modifier="MerrellDyer" title="$:/palette">
+<div created="20200919034510021" creator="MerrellDyer" modified="20210228230409974" modifier="MerrellDyer" title="$:/palette">
 <pre>$:/palettes/Vanilla</pre>
 </div>
 <div bag="default" created="20200126141319129" modified="20200521150810414" revision="0" tags="$:/tags/Stylesheet $:/giffmex/stroll $:/giffmex/blinks" title="$:/plugins/danielo515/context/css" type="text/css">
@@ -13349,6 +13417,9 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20210101191058498" creator="MerrellDyer" modified="20210101191059545" modifier="MerrellDyer" title="$:/state/edit/references--569002351">
 <pre>hide</pre>
 </div>
+<div created="20210228234727362" creator="MerrellDyer" modified="20210228234727362" modifier="MerrellDyer" title="$:/state/editpreviewtype">
+<pre>$:/core/ui/EditTemplate/body/preview/diffs-current</pre>
+</div>
 <div created="20201226214158689" creator="MerrellDyer" modified="20201226214159883" modifier="MerrellDyer" title="$:/state/folded/TODO">
 <pre>show</pre>
 </div>
@@ -13382,8 +13453,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201227041714942" creator="MerrellDyer" modified="20201227041721658" modifier="MerrellDyer" title="$:/state/plugin-info--270617185-$:/themes/tiddlywiki/vanilla">
 <pre>no</pre>
 </div>
-<div created="20210102185305776" creator="MerrellDyer" modified="20210108180815842" modifier="MerrellDyer" title="$:/state/showeditpreview">
-<pre>yes</pre>
+<div created="20210102185305776" creator="MerrellDyer" modified="20210228234734674" modifier="MerrellDyer" title="$:/state/showeditpreview">
+<pre>no</pre>
 </div>
 <div created="20210102050325935" creator="MerrellDyer" modified="20210109042621088" modifier="MerrellDyer" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -13403,19 +13474,19 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20201226225549863" creator="MerrellDyer" modified="20201227232741118" modifier="MerrellDyer" title="$:/state/tab-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div created="20201226214207410" creator="MerrellDyer" modified="20210202050725230" modifier="MerrellDyer" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20201226214207410" creator="MerrellDyer" modified="20210301010033225" modifier="MerrellDyer" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
 <div created="20210202050638819" creator="MerrellDyer" modified="20210202050638819" modifier="MerrellDyer" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201226210914653" creator="MerrellDyer" modified="20210131061627552" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
+<div created="20201226210914653" creator="MerrellDyer" modified="20210228232218999" modifier="MerrellDyer" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
 <div created="20210128063219978" creator="MerrellDyer" modified="20210128070132707" modifier="MerrellDyer" title="$:/state/tab/peanut butter cookies--1458034425">
 <pre>classic peanut butter cookies</pre>
 </div>
-<div created="20201226210912360" creator="MerrellDyer" modified="20210205152821615" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
+<div created="20201226210912360" creator="MerrellDyer" modified="20210301010019151" modifier="MerrellDyer" title="$:/state/tab/sidebar--595412856">
 <pre>Contents</pre>
 </div>
 <div created="20210109051443685" creator="MerrellDyer" modified="20210128065837266" modifier="MerrellDyer" title="$:/state/tab/waffles-2125693699">
@@ -13524,12 +13595,12 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <pre>close</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>no</pre>
+<pre>yes</pre>
 </div>
 <div created="20160407102858708" creator="t" modified="20200919032120001" modifier="MerrellDye" title="$:/status/UserName">
 <pre>MerrellDyer</pre>
 </div>
-<div list="Welcome Featured" title="$:/StoryList">
+<div created="20210228230208566" creator="MerrellDyer" list="$:/ControlPanel Welcome" modified="20210301010031785" modifier="MerrellDyer" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200919034928491" creator="MerrellDyer" list="$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions" modified="20201227232746905" modifier="MerrellDyer" title="$:/tags/PageControls">
@@ -13538,8 +13609,8 @@ There are 2 fields, which are used by [[$:/plugins/wikilabs/link-to-tabs/styles]
 <div created="20200919172256406" creator="MerrellDyer" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar" modified="20201008213938283" modifier="MerrellDyer" title="$:/tags/ViewToolbar">
 <pre></pre>
 </div>
-<div created="20200919034500511" creator="MerrellDyer" modified="20210205152819624" modifier="MerrellDyer" title="$:/theme">
-<pre>$:/themes/tiddlywiki/readonly</pre>
+<div created="20200919034500511" creator="MerrellDyer" modified="20210228225442958" modifier="MerrellDyer" title="$:/theme">
+<pre>$:/themes/tiddlywiki/snowwhite</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20201228021710840" creator="MerrellDyer" dependents="$:/themes/tiddlywiki/snowwhite" description="Hides the ability to edit tiddlers" modified="20201228025919469" modifier="MerrellDyer" name="ReadOnly" plugin-type="theme" title="$:/themes/tiddlywiki/readonly" type="application/json" version="5.1.23">
 <pre>{
@@ -18302,7 +18373,7 @@ Mix it all together, adding the pecans when you serve so they don't get soggy. T
 <div _canonical_uri="https://i.imgur.com/cR5WRT9.png?1" created="20201031071604772" creator="MerrellDyer" modified="20201031071704413" modifier="MerrellDyer" tags="$:/img" title="warm_beans_goat_cheese.png" type="image/png">
 <pre></pre>
 </div>
-<div created="20200919172610287" creator="MerrellDyer" icon="$:/core/images/home-button" modified="20210102025601519" modifier="MerrellDyer" tags="" title="Welcome" type="text/vnd.tiddlywiki">
+<div created="20200919172610287" creator="MerrellDyer" icon="$:/core/images/home-button" modified="20210228230154559" modifier="MerrellDyer" tags="" title="Welcome" type="text/vnd.tiddlywiki">
 <pre>This is our recipe book. Enjoy!
 
 &lt;div class=&quot;columns&quot;&gt;
@@ -18324,7 +18395,7 @@ Mix it all together, adding the pecans when you serve so they don't get soggy. T
 
 &lt;div class=&quot;column-item&quot;&gt;
 &lt;h1&gt;Recent&lt;/h1&gt;
-&lt;&lt;timeline limit:10 subfilter:&quot;has[tags]!title[Contents]!has[draft.of]!is[tag]&quot; format:&quot;&quot;&gt;&gt;
+&lt;&lt;timeline limit:10 subfilter:&quot;has[tags]!title[Contents]!has[draft.of]!tag[$:/img]!is[tag]limit[10]&quot; format:&quot;&quot;&gt;&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
