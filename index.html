@@ -187,8 +187,6 @@ Error message and password prompt
 
 <li>$:/.jondyer/macros/toc</li>
 
-<li>$:/.jondyer/plugins/googleanalytics/googleanalytics.js</li>
-
 <li>$:/.jondyer/styles</li>
 
 <li>$:/.jondyer/styles/buttons</li>
@@ -368,8 +366,6 @@ Error message and password prompt
 <li>$:/GitHub/Repo</li>
 
 <li>$:/GitHub/Username</li>
-
-<li>$:/GoogleAnalyticsAccount</li>
 
 <li>$:/isEncrypted</li>
 
@@ -1361,7 +1357,6 @@ Error message and password prompt
 {"title":"$:/.jondyer/macros/recipe-image","text":"\\define imageAtPath(i, t, p, c)\n[img width=\"100%\" class=\"$c$\" [$t$|$p$$i$]]\n\\end\n\n\\define recipe-image-left(image, width:\"50%\", tooltip, caption, path:\"$:/.jondyer/macros/recipe-image/path\", class)\n\u003Cdiv class=\"image-float-left\" style=\"width:$width$\">\n\u003C$macrocall $name=\"imageAtPath\" p={{$path$}} i=\"$image$\" t=\"$tooltip$\" c=\"ximg $class$\"/>\n$caption$\n\u003C/div>\n\\end\n\n\\define recipe-image-right(image, width:\"50%\", tooltip, caption, path:\"$:/.jondyer/macros/recipe-image/path\", class)\n\u003Cdiv class=\"image-float-right\" style=\"width:$width$\">\n\u003C$macrocall $name=\"imageAtPath\" p={{$path$}} i=\"$image$\" t=\"$tooltip$\" c=\"ximg $class$\"/>\n$caption$\n\u003C/div>\n\\end\n\n\\define recipe-image-center(image, width:\"50%\", tooltip, caption, path:\"$:/.jondyer/macros/recipe-image/path\", class)\n\u003Cdiv class=\"image-center\" style=\"width:$width$\">\n\u003C$macrocall $name=\"imageAtPath\" p={{$path$}} i=\"$image$\" t=\"$tooltip$\" c=\"ximg $class$\"/>\n$caption$\n\u003C/div>\n\\end","created":"20141116144017266","creator":"Tobias Beer","modified":"20210109052509827","modifier":"MerrellDyer","summary":"easily render images from an external source","tags":"$:/tags/Macro"},
 {"title":"$:/.jondyer/macros/recipe-image/path","text":"https://i.imgur.com/","created":"20210102024707332","creator":"MerrellDyer","modified":"20210102024739748","modifier":"MerrellDyer","tags":""},
 {"title":"$:/.jondyer/macros/toc","text":"\\define jon-toc-linked-selective-expandable-body(tag,sort:\"\",itemClassFilter:\" \",exclude,path)\n\u003C$set name=\"toc-state\" value=\u003C\u003Cqualify \"\"\"$:/state/toc$path$-$(currentTiddler)$\"\"\">>>\n  \u003C$set name=\"toc-item-class\" filter=\"\"\"$itemClassFilter$\"\"\" emptyValue=\"toc-item\" value=\"toc-item-selected\" >\n    \u003Cli class=\u003C\u003Ctoc-item-class>>>\n      \u003C$link>\n          \u003C$list filter=\"[all[current]tagging[]limit[1]]\" variable=\"ignore\" emptyMessage=\"\u003C$button class='tc-btn-invisible'>{{$:/core/images/blank}}\u003C/$button>\">\n          \u003C$reveal type=\"nomatch\" state=\u003C\u003Ctoc-state>> text=\"open\">\n            \u003C$button set=\u003C\u003Ctoc-state>> setTo=\"open\" class=\"tc-btn-invisible tc-popup-keep\">\n              {{$:/core/images/right-arrow}}\n            \u003C/$button>\n          \u003C/$reveal>\n          \u003C$reveal type=\"match\" state=\u003C\u003Ctoc-state>> text=\"open\">\n            \u003C$button set=\u003C\u003Ctoc-state>> setTo=\"close\" class=\"tc-btn-invisible tc-popup-keep\">\n              {{$:/core/images/down-arrow}}\n            \u003C/$button>\n          \u003C/$reveal>\n        \u003C/$list>\n        \u003C\u003Ctoc-caption>>\n      \u003C/$link>\n      \u003C$reveal type=\"match\" state=\u003C\u003Ctoc-state>> text=\"open\">\n        \u003C$macrocall $name=\"jon-toc-selective-expandable\" tag=\u003C\u003CcurrentTiddler>> sort=\"\"\"$sort$\"\"\" itemClassFilter=\"\"\"$itemClassFilter$\"\"\" exclude=\"\"\"$exclude$\"\"\" path=\"\"\"$path$\"\"\"/>\n      \u003C/$reveal>\n    \u003C/li>\n  \u003C/$set>\n\u003C/$set>\n\\end\n\n\\define jon-toc-unlinked-selective-expandable-body(tag,sort:\"\",itemClassFilter:\" \",exclude,path)\n\u003C$set name=\"toc-state\" value=\u003C\u003Cqualify \"\"\"$:/state/toc$path$-$(currentTiddler)$\"\"\">>>\n  \u003C$set name=\"toc-item-class\" filter=\"\"\"$itemClassFilter$\"\"\" emptyValue=\"toc-item\" value=\"toc-item-selected\">\n    \u003Cli class=\u003C\u003Ctoc-item-class>>>\n      \u003C$list filter=\"[all[current]tagging[]limit[1]]\" variable=\"ignore\" emptyMessage=\"\u003C$button class='tc-btn-invisible'>{{$:/core/images/blank}}\u003C/$button> \u003C$view field='caption'>\u003C$view field='title'/>\u003C/$view>\">\n        \u003C$reveal type=\"nomatch\" state=\u003C\u003Ctoc-state>> text=\"open\">\n          \u003C$button set=\u003C\u003Ctoc-state>> setTo=\"open\" class=\"tc-btn-invisible tc-popup-keep\">\n            {{$:/core/images/right-arrow}}\n            \u003C\u003Ctoc-caption>>\n          \u003C/$button>\n        \u003C/$reveal>\n        \u003C$reveal type=\"match\" state=\u003C\u003Ctoc-state>> text=\"open\">\n          \u003C$button set=\u003C\u003Ctoc-state>> setTo=\"close\" class=\"tc-btn-invisible tc-popup-keep\">\n            {{$:/core/images/down-arrow}}\n            \u003C\u003Ctoc-caption>>\n          \u003C/$button>\n        \u003C/$reveal>\n      \u003C/$list>\n      \u003C$reveal type=\"match\" state=\u003C\u003Ctoc-state>> text=\"open\">\n        \u003C$macrocall $name=\"\"\"jon-toc-selective-expandable\"\"\" tag=\u003C\u003CcurrentTiddler>> sort=\"\"\"$sort$\"\"\" itemClassFilter=\"\"\"$itemClassFilter$\"\"\" exclude=\"\"\"$exclude$\"\"\" path=\"\"\"$path$\"\"\"/>\n      \u003C/$reveal>\n    \u003C/li>\n  \u003C/$set>\n\u003C/$set>\n\\end\n\n\\define jon-toc-selective-expandable-empty-message()\n\u003C\u003Cjon-toc-linked-selective-expandable-body tag:\"\"\"$(tag)$\"\"\" sort:\"\"\"$(sort)$\"\"\" itemClassFilter:\"\"\"$(itemClassFilter)$\"\"\" exclude:\"\"\"$(excluded)$\"\"\" path:\"\"\"$(path)$\"\"\">>\n\\end\n\n\n\\define jon-toc-selective-expandable(tag,sort:\"\",itemClassFilter,exclude,path)\n\u003C$vars tag=\"\"\"$tag$\"\"\" sort=\"\"\"$sort$\"\"\" itemClassFilter=\"\"\"$itemClassFilter$\"\"\" excluded=\"\"\"$exclude$ -[[$tag$]]\"\"\" path=\"\"\"$path$/$tag$\"\"\">\n  \u003Col class=\"tc-toc toc-selective-expandable\">\n    \u003C$list filter=\"\"\"[all[shadows+tiddlers]tag[$tag$]!has[draft.of]$sort$] -[[$tag$]] $exclude$\"\"\">\n      \u003C$list filter=\"[all[current]toc-link[no]]\" variable=\"ignore\" emptyMessage=\u003C\u003Cjon-toc-selective-expandable-empty-message>> >\n        \u003C$macrocall $name=jon-toc-unlinked-selective-expandable-body tag=\"\"\"$tag$\"\"\" sort=\"\"\"$sort$\"\"\" itemClassFilter=\"\"\"$itemClassFilter$\"\"\" exclude=\u003C\u003Cexcluded>> path=\u003C\u003Cpath>> >\n      \u003C/$list>\n    \u003C/$list>\n  \u003C/ol>\n\u003C/$vars>\n\\end\n\n\n```\n\\define jon-toc-selective-expandable(tag,sort:\"\",itemClassFilter,exclude,path)\n\u003C$vars tag=\"\"\"$tag$\"\"\" sort=\"\"\"$sort$\"\"\" itemClassFilter=\"\"\"$itemClassFilter$\"\"\" excluded=\"\"\"$exclude$ -[[$tag$]]\"\"\" path=\"\"\"$path$/$tag$\"\"\">\n  \u003Col class=\"tc-toc toc-selective-expandable\">\n    \u003C$list filter=\"\"\"[all[shadows+tiddlers]tag[$tag$]!has[draft.of]$sort$] -[[$tag$]] $exclude$\"\"\">\n      \u003C$list filter=\"[all[current]toc-link[no]]\" variable=\"ignore\" emptyMessage=\u003C\u003Cjon-toc-selective-expandable-empty-message>> >\n        \u003C$macrocall $name=jon-toc-unlinked-selective-expandable-body tag=\"\"\"$tag$\"\"\" sort=\"\"\"$sort$\"\"\" itemClassFilter=\"\"\"$itemClassFilter$\"\"\" exclude=\u003C\u003Cexcluded>> path=\u003C\u003Cpath>> >\n      \u003C/$list>\n    \u003C/$list>\n  \u003C/ol>\n\u003C/$vars>\n\\end\n```","created":"20201104020947068","creator":"MerrellDyer","modified":"20201104022141587","modifier":"MerrellDyer","tags":"$:/tags/Macro"},
-{"title":"$:/.jondyer/plugins/googleanalytics/googleanalytics.js","type":"application/javascript","text":"/*\\\ntitle: $:/.jondyer/plugins/googleanalytics/googleanalytics.js\ntype: application/javascript\nmodule-type: startup\n\nRuns Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount`\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\"use strict\";\n\n// Export name and synchronous status\nexports.name = \"google-analytics\";\nexports.platforms = [\"browser\"];\nexports.after = [\"startup\"];\nexports.synchronous = true;\n\nvar CONFIG_CONSENT_REQUIRED_TITLE = \"$:/config/cookie-consent-required\";\nvar CONSENT_TITLE = \"$:/state/consent-banner/accepted\"; // \"\": undeclared, \"yes\": accepted, \"no\": declined\n\nexports.startup = function() {\n\tvar hasInitialised = false;\n\tvar initialiseGoogleAnalytics = function() {\n\t\t\tconsole.log(\"Initialising Google Analytics\");\n\t\t\thasInitialised = true;\n\t\t\t// get account number\n\t\t\tvar gaAccount = $tw.wiki.getTiddlerText(\"$:/GoogleAnalyticsAccount\",\"\").replace(/\\n/g,\"\");\n\t\t\t// add \u003Cscript> elements to head as instructed in GA setup directions --> it will execute automatically\n\t\t\tvar gaScript1 = document.createElement('script');\n\t\t\tgaScript1.src = \"https://www.googletagmanager.com/gtag/js?id=\" + gaAccount;\n\t\t\tgaScript1.async = true;\n\t\t\tdocument.head.append(gaScript1);\n\n\t\t\tvar gaScript2 = document.createElement('script');\n\t\t\tgaScript2.text = `window.dataLayer = window.dataLayer || [];\n\t\t\t\t\t\t\t\t\t\tfunction gtag(){dataLayer.push(arguments);}\n\t\t\t\t\t\t\t\t\t\tgtag('js', new Date());\n\t\t\t\t\t\t\t\t\t\tgtag('config', '${gaAccount}');`\n\t\t\tdocument.head.append(gaScript2);\n\t};\n\n\t// Initialise now if consent isn't required\n\tif($tw.wiki.getTiddlerText(CONFIG_CONSENT_REQUIRED_TITLE) !== \"yes\") {\n\t\tinitialiseGoogleAnalytics();\n\t} else {\n\t\t// Or has been granted already\n\t\tif($tw.wiki.getTiddlerText(CONSENT_TITLE) === \"yes\") {\n\t\t\tinitialiseGoogleAnalytics();\n\t\t} else {\n\t\t\t// Or when our config tiddler changes\n\t\t\t$tw.wiki.addEventListener(\"change\",function(changes) {\n\t\t\t\tif(changes[CONSENT_TITLE]) {\n\t\t\t\t\tif(!hasInitialised && $tw.wiki.getTiddlerText(CONSENT_TITLE) === \"yes\") {\n\t\t\t\t\t\tinitialiseGoogleAnalytics();\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t}\n};\n\n\n\n})();\n","created":"20210228235204076","creator":"MerrellDyer","modified":"20210301010009230","modifier":"MerrellDyer","module-type":"startup"},
 {"title":"$:/.jondyer/styles","type":"text/css","text":".body-flex {\n  overflow: hidden;\n}\n\n\n/* BACK TO TOP */\n.back-top{\nfloat:right;\nclear:both;\nmargin: 0 0 -25px 0;\n}\n.back-top a{\ncolor:#ddd;\n}\n\n.back-top a:hover{\ncolor:#999;\n}\n\n\n/* COLUMNS */\n.columns {\n  column-width: 25rem;\n  column-gap: 1em;\n  column-rule: 1px solid #ccc;\n}\n\n.columns ul {\n  margin-block-start:0; \n}\n\n.column-item {    /* For \"blocks\" such as categories of lists */\n  padding-bottom:1em;\n  white-space: nowrap; \n}\n\n\n\n/* TABLES */\n.no-border,\n.no-border tr,\n.no-border th,\n.no-border td {\nborder:0;\n}\n\n","created":"20201027004531479","creator":"jondyer","list-after":"$:/themes/tiddlywiki/vanilla/base","modified":"20210109044231229","modifier":"MerrellDyer","tags":"$:/tags/Stylesheet"},
 {"title":"$:/.jondyer/styles/buttons","type":"text/css","text":"/* BUTTONS */\nbutton svg.jondyer-image-home-button {\n  width: 30pt;\n  height: 30pt;\n}\n\nbutton svg.jondyer-image-palette-button {\n  width: 30pt;\n  height: 30pt;\n}","created":"20201227232911321","creator":"MerrellDyer","modified":"20201227233043130","modifier":"MerrellDyer","tags":"$:/tags/Stylesheet"},
 {"title":"$:/.jondyer/styles/hover-toolbar","type":"text/css","text":"/* desktop */\n@media only screen and (min-width: 992px) {\n  .tc-tiddler-frame .tc-titlebar button {\n    opacity: 0;\n    transition: opacity .5s ease-in-out;\n  }\n\n  .tc-tiddler-frame:hover .tc-titlebar button {\n    zoom: 1;\n    filter: alpha(opacity=100);\n    opacity: 1;\n  }\n}","created":"20201227152232437","creator":"MerrellDyer","modified":"20210109034512225","modifier":"MerrellDyer","tags":"$:/tags/Stylesheet"},
@@ -1452,7 +1447,6 @@ Error message and password prompt
 {"title":"$:/GitHub/Path","text":"/","created":"20201030065424710","creator":"MerrellDyer","modified":"20201030065424710","modifier":"MerrellDyer"},
 {"title":"$:/GitHub/Repo","text":"foodandcheer/foodandcheer.github.io","created":"20201030065402819","creator":"MerrellDyer","modified":"20201030065701616","modifier":"MerrellDyer"},
 {"title":"$:/GitHub/Username","text":"foodandcheer","created":"20201030065231493","creator":"MerrellDyer","modified":"20201030065233778","modifier":"MerrellDyer"},
-{"title":"$:/GoogleAnalyticsAccount","text":"G-VZDZJQF1EY","created":"20210202050739107","creator":"MerrellDyer","modified":"20210301000812663","modifier":"MerrellDyer"},
 {"title":"$:/isEncrypted","text":"no"},
 {"title":"$:/layout","text":"$:/core/ui/PageTemplate","created":"20201227025315628","creator":"MerrellDyer","modified":"20201227030119622","modifier":"MerrellDyer"},
 {"created":"20200919034510021","creator":"MerrellDyer","title":"$:/palette","text":"$:/palettes/Vanilla","modified":"20221121011043295","modifier":"MerrellDyer"},
@@ -1513,8 +1507,8 @@ Error message and password prompt
 {"created":"20221014035045282","creator":"MerrellDyer","title":"$:/state/tab-2065006209","text":"$:/core/ui/ControlPanel/Saving/GitHub","modified":"20221014035045282","modifier":"MerrellDyer"},
 {"created":"20221121025110682","creator":"MerrellDyer","title":"$:/state/tab-2122733749","text":"sun-dried tomato and olive pesto with capers","modified":"20221121033953769","modifier":"MerrellDyer"},
 {"created":"20221114061240946","creator":"MerrellDyer","title":"$:/state/tab-643839775","text":"brandy-cream pan sauce","modified":"20221120182025988","modifier":"MerrellDyer"},
-{"created":"20220913044355956","creator":"MerrellDyer","title":"$:/state/tab/moresidebar-1850697562","text":"$:/core/ui/MoreSideBar/All","modified":"20230120231054876","modifier":"MerrellDyer"},
-{"created":"20220911052650540","creator":"MerrellDyer","title":"$:/state/tab/sidebar--595412856","text":"Contents","modified":"20230329110246280","modifier":"MerrellDyer"},
+{"created":"20220913044355956","creator":"MerrellDyer","title":"$:/state/tab/moresidebar-1850697562","text":"$:/core/ui/MoreSideBar/Shadows","modified":"20230502090102562","modifier":"MerrellDyer"},
+{"created":"20220911052650540","creator":"MerrellDyer","title":"$:/state/tab/sidebar--595412856","text":"Contents","modified":"20230502090112385","modifier":"MerrellDyer"},
 {"created":"20220913053611926","creator":"MerrellDyer","title":"$:/state/tab/waffles-1382656458","text":"andy's yeasted waffles","modified":"20220913053809307","modifier":"MerrellDyer"},
 {"created":"20221122035409865","creator":"MerrellDyer","title":"$:/state/tabs/controlpanel/toolbars-1345989671","text":"$:/core/ui/ControlPanel/Toolbars/EditToolbar","modified":"20221122035424881","modifier":"MerrellDyer"},
 {"created":"20221112191916899","creator":"MerrellDyer","title":"$:/state/toc/Contents-Desserts-1843068618","text":"close","modified":"20221112194049422","modifier":"MerrellDyer"},
@@ -1529,7 +1523,7 @@ Error message and password prompt
 {"created":"20221120182139233","creator":"MerrellDyer","title":"$:/state/toc/Cuisines-Central/South American-1685240214","text":"close","modified":"20221120182238966","modifier":"MerrellDyer"},
 {"title":"$:/status/RequireReloadDueToPluginChange","text":"no"},
 {"title":"$:/status/UserName","text":"MerrellDyer","created":"20160407102858708","creator":"t","modified":"20200919032120001","modifier":"MerrellDye"},
-{"title":"$:/StoryList","created":"20230329110249902","creator":"MerrellDyer","text":"","list":"Welcome","modified":"20230329121106758","modifier":"MerrellDyer"},
+{"title":"$:/StoryList","text":"","list":"Welcome Featured"},
 {"title":"$:/tags/PageControls","text":"","created":"20200919034928491","creator":"MerrellDyer","list":"$:/core/ui/Buttons/home $:/.jondyer/ui/Buttons/switch-palette $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/.jondyer/ui/Buttons/new-recipe $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/refresh $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/more-page-actions","modified":"20201227232746905","modifier":"MerrellDyer"},
 {"title":"$:/tags/ViewToolbar","text":"","created":"20200919172256406","creator":"MerrellDyer","list":"$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/fold $:/core/ui/Buttons/open-window $:/core/ui/Buttons/edit $:/core/ui/Buttons/close-others $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold-bar","modified":"20201008213938283","modifier":"MerrellDyer"},
 {"created":"20200919034500511","creator":"MerrellDyer","title":"$:/theme","text":"$:/themes/tiddlywiki/vanilla","modified":"20230328160800632","modifier":"MerrellDyer"},
@@ -4799,59 +4793,6 @@ if(typeof(exports) !== "undefined") {
 	_boot(window.$tw);
 }
 //# sourceURL=$:/boot/boot.js
-</script>
-<script>
-// test support
-let isSupported = false;
-
-if ('wakeLock' in navigator) {
-  isSupported = true;
-  console.log('Screen Wake Lock API supported 🎉');
-} else {
-  wakeButton.disabled = true;
-  console.log('Wake lock is not supported by this browser.');
-}
-
-if (isSupported) {
-  // create a reference for the wake lock
-  let wakeLock = null;
-
-  // create an async function to request a wake lock
-  const requestWakeLock = async () => {
-    try {
-      wakeLock = await navigator.wakeLock.request('screen');
-
-      // change up our interface to reflect wake lock active
-      console.log('locked');
-
-      // listen for our release event
-      wakeLock.onrelease = function(ev) {
-        console.log(ev);
-      }
-      wakeLock.addEventListener('release', () => {
-        // if wake lock is released alter the button accordingly
-        console.log('released');
-      });
-
-    } catch (err) {
-      // if wake lock request fails - usually system related, such as battery
-      wakeButton.dataset.status = 'off';
-      wakeButton.textContent = 'Turn Wake Lock ON';
-      statusElem.textContent = `${err.name}, ${err.message}`;
-
-    }
-  } // requestWakeLock()
-
-	requestWakeLock();
-
-  const handleVisibilityChange = () => {
-    if (wakeLock !== null && document.visibilityState === 'visible') {
-      requestWakeLock();
-    }
-  }
-
-	document.addEventListener('visibilitychange', handleVisibilityChange);
-}
 </script>
 </div>
 <!--~~ Raw markup for the bottom of the body section ~~-->
