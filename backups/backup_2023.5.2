@@ -4800,59 +4800,6 @@ if(typeof(exports) !== "undefined") {
 }
 //# sourceURL=$:/boot/boot.js
 </script>
-<script>
-// test support
-let isSupported = false;
-
-if ('wakeLock' in navigator) {
-  isSupported = true;
-  console.log('Screen Wake Lock API supported 🎉');
-} else {
-  wakeButton.disabled = true;
-  console.log('Wake lock is not supported by this browser.');
-}
-
-if (isSupported) {
-  // create a reference for the wake lock
-  let wakeLock = null;
-
-  // create an async function to request a wake lock
-  const requestWakeLock = async () => {
-    try {
-      wakeLock = await navigator.wakeLock.request('screen');
-
-      // change up our interface to reflect wake lock active
-      console.log('locked');
-
-      // listen for our release event
-      wakeLock.onrelease = function(ev) {
-        console.log(ev);
-      }
-      wakeLock.addEventListener('release', () => {
-        // if wake lock is released alter the button accordingly
-        console.log('released');
-      });
-
-    } catch (err) {
-      // if wake lock request fails - usually system related, such as battery
-      wakeButton.dataset.status = 'off';
-      wakeButton.textContent = 'Turn Wake Lock ON';
-      statusElem.textContent = `${err.name}, ${err.message}`;
-
-    }
-  } // requestWakeLock()
-
-	requestWakeLock();
-
-  const handleVisibilityChange = () => {
-    if (wakeLock !== null && document.visibilityState === 'visible') {
-      requestWakeLock();
-    }
-  }
-
-	document.addEventListener('visibilitychange', handleVisibilityChange);
-}
-</script>
 </div>
 <!--~~ Raw markup for the bottom of the body section ~~-->
 
